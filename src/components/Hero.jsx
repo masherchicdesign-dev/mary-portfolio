@@ -26,11 +26,16 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-wrap gap-2 mb-7">
-          {['8+ years', 'Creator Economy', '0→1 launches'].map((tag) => (
-            <span key={tag} className="text-[#888888] text-sm px-3 py-1 border border-[#2a2a2a] rounded-full">
-              {tag}
-            </span>
-          ))}
+          <span className="text-[#888888] text-sm px-3 py-1 border border-[#2a2a2a] rounded-full">
+            8+ years
+          </span>
+          <span className="text-[#888888] text-sm px-3 py-1 border border-[#2a2a2a] rounded-full inline-flex items-center gap-1.5">
+            <img src="/youtube.svg" alt="YouTube" className="w-3.5 h-auto brightness-0 invert opacity-55" />
+            Creator Economy
+          </span>
+          <span className="text-[#888888] text-sm px-3 py-1 border border-[#2a2a2a] rounded-full">
+            0→1 launches
+          </span>
           <span className="text-[#888888] text-sm px-3 py-1 border border-[#2a2a2a] rounded-full inline-flex items-center gap-1.5">
             <img src="/claude-icon.svg" alt="Claude" className="w-3.5 h-3.5 brightness-0 invert opacity-55" />
             Prototyping

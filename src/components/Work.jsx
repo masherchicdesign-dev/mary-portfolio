@@ -7,7 +7,7 @@ const projects = [
     image: '/cases/competitive-insights.png',
     icon: '/logos/air-icon.png',
     subtitle: 'AIR MEDIA-TECH',
-    metric: '77% weekly return rate',
+    metric: '77% weekly return rate · 6× higher consistency',
     description:
       'Initiated and led a 0→1 analytics product for YouTube creators — from C-level workshop and API feasibility research to launch and adoption measurement.',
     metrics: [
@@ -86,7 +86,7 @@ function FeaturedCard({ project }) {
             <p className="text-[#888888] text-sm mt-0.5">
               {project.subtitle}
               {project.metric && (
-                <><span className="mx-2">·</span><span className="text-[#00c853]">{project.metric}</span></>
+                <><span className="mx-2">·</span><span className="text-[#c8f563]">{project.metric}</span></>
               )}
             </p>
           )}

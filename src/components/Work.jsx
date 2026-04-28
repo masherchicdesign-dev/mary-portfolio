@@ -104,8 +104,8 @@ function FeaturedCard({ project }) {
             ))}
           </div>
         )}
-        <div className="absolute bottom-4 left-4 w-10 h-10 rounded-full border border-[#555] flex items-center justify-center transition-all duration-200 hover:bg-white hover:border-white group" style={{background: 'rgba(40,40,40,0.9)'}}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="stroke-white group-hover:stroke-black transition-colors duration-200">
+        <div className="absolute bottom-4 left-4 w-10 h-10 rounded-full border border-[#555] flex items-center justify-center transition-all duration-200 hover:border-[#888]" style={{background: 'rgba(40,40,40,0.9)'}} onMouseEnter={e => e.currentTarget.style.background='rgba(10,10,10,0.95)'} onMouseLeave={e => e.currentTarget.style.background='rgba(40,40,40,0.9)'}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M7 17L17 7M17 7H7M17 7v10"/>
           </svg>
         </div>

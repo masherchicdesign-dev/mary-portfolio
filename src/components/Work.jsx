@@ -118,7 +118,7 @@ function Card({ project }) {
 }
 
 export default function Work() {
-  const [featured, ...rest] = projects
+  const [featured] = projects
 
   return (
     <section id="work" className="max-w-6xl mx-auto px-6 py-24">
@@ -126,12 +126,6 @@ export default function Work() {
 
       <div className="flex flex-col gap-6">
         <FeaturedCard project={featured} />
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {rest.map((project) => (
-            <Card key={project.slug} project={project} />
-          ))}
-        </div>
       </div>
     </section>
   )

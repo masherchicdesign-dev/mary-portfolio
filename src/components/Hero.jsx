@@ -1,10 +1,11 @@
 const COMPANIES = [
-  'AIR MEDIA-TECH',
-  'Sage Seller',
-  'Yves Rocher',
-  'SONY',
-  'Morshinska',
-  'Kyivstar',
+  { name: 'AIR MEDIA-TECH', domain: 'YouTube Creators', logo: '/logos/air-media.svg' },
+  { name: 'Sage Seller', domain: 'Amazon Sellers', logo: '/logos/sage-seller.svg' },
+  { name: 'Yves Rocher', domain: 'Beauty & Retail', logo: '/logos/yves-rocher.svg', logoClass: 'h-10' },
+  { name: 'SONY', domain: 'Consumer Electronics', logo: '/logos/sony.svg', logoClass: 'h-4' },
+  { name: 'Kyivstar', domain: 'Telecom', logo: '/logos/kyivstar.svg', logoClass: 'h-10' },
+  { name: 'Royalty', domain: 'Crypto Investors', logo: null },
+  { name: 'Morshinska', domain: 'Promoters', logo: null },
 ]
 
 export default function Hero() {
@@ -55,15 +56,30 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="border-t border-b border-[#2a2a2a] py-5 overflow-hidden">
-        <p className="text-center text-[#888888] text-xs tracking-widest uppercase mb-4">Trusted by industry leaders</p>
-        <div className="marquee-track">
-          {items.map((name, i) => (
-            <span key={i} className="flex items-center gap-8 px-8 text-[#888888] text-sm tracking-widest uppercase whitespace-nowrap">
-              {name}
-              <span className="text-[#2a2a2a]">✦</span>
-            </span>
-          ))}
+      <div className="border-t border-[#2a2a2a]">
+        <p className="text-center text-[#888888] text-sm py-4 border-b border-[#2a2a2a]">
+          Users I&apos;ve designed for
+        </p>
+        <div className="overflow-hidden border-b border-[#2a2a2a] py-8">
+          <div className="marquee-track">
+            {items.map((item, i) => (
+              <span key={i} className="flex items-center gap-12 px-12 whitespace-nowrap">
+                <span className="flex flex-col items-center gap-2">
+                  {item.logo ? (
+                    <img
+                      src={item.logo}
+                      alt={item.name}
+                      className={`${item.logoClass ?? 'h-6'} w-auto object-contain opacity-60`}
+                    />
+                  ) : (
+                    <span className="text-white text-sm font-medium">{item.name}</span>
+                  )}
+                  <span className="text-[#888888] text-xs tracking-widest uppercase">{item.domain}</span>
+                </span>
+                <span className="text-[#2a2a2a]">✦</span>
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>

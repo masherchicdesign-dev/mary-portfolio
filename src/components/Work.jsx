@@ -3,6 +3,8 @@ const projects = [
     slug: 'competitive-insights',
     tags: ['0→1', 'Analytics', 'Creator Economy', 'C-level'],
     title: 'Competitive Insights',
+    subtitle: 'AIR MEDIA-TECH',
+    metric: '77% weekly return rate',
     description:
       'Initiated and led a 0→1 analytics product for YouTube creators — from C-level workshop and API feasibility research to launch and adoption measurement.',
     metrics: [
@@ -57,7 +59,24 @@ function ImagePlaceholder({ aspectRatio = 'aspect-video' }) {
 
 function FeaturedCard({ project }) {
   return (
-    <div className="bg-[#161616] border border-[#2a2a2a] rounded-lg overflow-hidden">
+    <div>
+      <div className="flex items-center gap-4 mb-5">
+        <div className="w-14 h-14 rounded-2xl bg-[#161616] border border-[#2a2a2a] flex items-center justify-center shrink-0">
+          <span className="text-white text-xl font-bold">CI</span>
+        </div>
+        <div>
+          <h3 className="text-base font-semibold text-white">{project.title}</h3>
+          {project.subtitle && (
+            <p className="text-[#888888] text-sm mt-0.5">
+              {project.subtitle}
+              {project.metric && (
+                <><span className="mx-2">·</span><span className="text-emerald-400">{project.metric}</span></>
+              )}
+            </p>
+          )}
+        </div>
+      </div>
+      <div className="bg-[#161616] border border-[#2a2a2a] rounded-lg overflow-hidden">
       <ImagePlaceholder />
       <div className="p-8 md:p-10">
         <div className="flex flex-wrap gap-2 mb-4">
@@ -65,7 +84,6 @@ function FeaturedCard({ project }) {
             <Tag key={tag} label={tag} />
           ))}
         </div>
-        <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
         <p className="text-[#888888] text-sm leading-relaxed mb-6 max-w-2xl">
           {project.description}
         </p>
@@ -87,6 +105,7 @@ function FeaturedCard({ project }) {
         >
           View Case →
         </a>
+      </div>
       </div>
     </div>
   )
@@ -121,9 +140,7 @@ export default function Work() {
   const [featured] = projects
 
   return (
-    <section id="work" className="max-w-6xl mx-auto px-6 py-24">
-      <h2 className="text-2xl font-semibold mb-12">Selected Work</h2>
-
+    <section id="work" className="max-w-6xl mx-auto px-6 pt-6 pb-24">
       <div className="flex flex-col gap-6">
         <FeaturedCard project={featured} />
       </div>

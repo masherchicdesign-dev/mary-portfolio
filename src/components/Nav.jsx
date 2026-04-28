@@ -8,8 +8,9 @@ export default function Nav({ scrolled }) {
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="text-white font-semibold text-base tracking-tight">
-          Mary Osadcha
+        <a href="#" className="flex items-center gap-2 text-white font-semibold text-base tracking-tight">
+          <img src="/mlogo.svg" alt="M" className="h-5 w-auto" />
+          Masha Osadcha
         </a>
 
         <div className="flex items-center gap-6">
@@ -37,7 +38,7 @@ export default function Nav({ scrolled }) {
           </div>
           <a
             href="#contact"
-            className="text-sm px-4 py-2 border border-[#2a2a2a] rounded text-white hover:border-white transition-colors"
+            className="text-sm px-4 py-2 border border-[#2a2a2a] rounded-full text-white hover:border-white transition-colors"
           >
             Contact me
           </a>

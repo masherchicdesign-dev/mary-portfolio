@@ -3,6 +3,7 @@ const projects = [
     slug: 'competitive-insights',
     tags: ['0→1', 'Analytics', 'Creator Economy', 'C-level'],
     title: 'Competitive Insights',
+    image: '/cases/competitive-insights.png',
     subtitle: 'AIR MEDIA-TECH',
     metric: '77% weekly return rate',
     description:
@@ -17,6 +18,7 @@ const projects = [
     slug: 'creators-ecosystem',
     tags: ['Ecosystem', 'UX Architecture', 'Strategy'],
     title: 'Creators Ecosystem',
+    icon: '/logos/air-icon.png',
     description:
       'Mapped the full service ecosystem across 30+ products — defining UX architecture that aligned product strategy with creator value delivery.',
   },
@@ -51,9 +53,18 @@ function Tag({ label }) {
   )
 }
 
-function ImagePlaceholder({ aspectRatio = 'aspect-video' }) {
+function ImagePlaceholder({ image }) {
+  if (image) {
+    return (
+      <div className="w-full aspect-[4/3]">
+        <img src={image} alt="" className="w-full h-full object-cover" />
+      </div>
+    )
+  }
   return (
-    <div className={`w-full ${aspectRatio} bg-[#1e1e1e] rounded-sm`} />
+    <div className="w-full aspect-[4/3] bg-[#1c1c1e] flex items-center justify-center p-4">
+      <div className="w-full h-full bg-[#2c2c2e] rounded-lg" />
+    </div>
   )
 }
 
@@ -61,8 +72,11 @@ function FeaturedCard({ project }) {
   return (
     <div>
       <div className="flex items-center gap-4 mb-5">
-        <div className="w-14 h-14 rounded-2xl bg-[#161616] border border-[#2a2a2a] flex items-center justify-center shrink-0">
-          <span className="text-white text-xl font-bold">CI</span>
+        <div className="w-14 h-14 rounded-2xl bg-[#161616] border border-[#2a2a2a] flex items-center justify-center shrink-0 overflow-hidden">
+          {project.icon
+            ? <img src={project.icon} alt={project.title} className="w-full h-full object-cover" />
+            : <span className="text-white text-sm font-bold">{project.title.split(' ').map(w => w[0]).join('').slice(0,3)}</span>
+          }
         </div>
         <div>
           <h3 className="text-base font-semibold text-white">{project.title}</h3>
@@ -76,36 +90,8 @@ function FeaturedCard({ project }) {
           )}
         </div>
       </div>
-      <div className="bg-[#161616] border border-[#2a2a2a] rounded-lg overflow-hidden">
-      <ImagePlaceholder />
-      <div className="p-8 md:p-10">
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.tags.map((tag) => (
-            <Tag key={tag} label={tag} />
-          ))}
-        </div>
-        <p className="text-[#888888] text-sm leading-relaxed mb-6 max-w-2xl">
-          {project.description}
-        </p>
-        {project.metrics && (
-          <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            {project.metrics.map((m) => (
-              <div
-                key={m}
-                className="flex-1 border border-[#2a2a2a] rounded px-4 py-3"
-              >
-                <p className="text-white text-sm font-medium">{m}</p>
-              </div>
-            ))}
-          </div>
-        )}
-        <a
-          href={`/work/${project.slug}`}
-          className="text-sm text-white hover:text-[#888888] transition-colors"
-        >
-          View Case →
-        </a>
-      </div>
+      <div className="bg-[#161616] border border-[#2a2a2a] rounded-3xl overflow-hidden">
+        <ImagePlaceholder image={project.image} />
       </div>
     </div>
   )
@@ -137,12 +123,14 @@ function Card({ project }) {
 }
 
 export default function Work() {
-  const [featured] = projects
+  const visible = projects.filter(p => p.slug === 'competitive-insights')
 
   return (
-    <section id="work" className="max-w-6xl mx-auto px-6 pt-6 pb-24">
+    <section id="work" className="max-w-6xl mx-auto px-6 pt-12 pb-24">
       <div className="flex flex-col gap-6">
-        <FeaturedCard project={featured} />
+        {visible.map((project) => (
+          <FeaturedCard key={project.slug} project={project} />
+        ))}
       </div>
     </section>
   )

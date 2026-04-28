@@ -2,8 +2,10 @@ const projects = [
   {
     slug: 'competitive-insights',
     tags: ['0→1', 'Analytics', 'Creator Economy', 'C-level'],
-    title: 'Competitive Insights',
+    chips: ['Ownership · 0→1', 'API Feasibility', 'Research', 'Design', 'Analytics'],
+    title: 'Competetive Insights',
     image: '/cases/competitive-insights.png',
+    icon: '/logos/air-icon.png',
     subtitle: 'AIR MEDIA-TECH',
     metric: '77% weekly return rate',
     description:
@@ -84,15 +86,25 @@ function FeaturedCard({ project }) {
             <p className="text-[#888888] text-sm mt-0.5">
               {project.subtitle}
               {project.metric && (
-                <><span className="mx-2">·</span><span className="text-emerald-400">{project.metric}</span></>
+                <><span className="mx-2">·</span><span className="text-[#00c853]">{project.metric}</span></>
               )}
             </p>
           )}
         </div>
       </div>
-      <div className="bg-[#161616] border border-[#2a2a2a] rounded-3xl overflow-hidden">
+      <a
+        href={`/work/${project.slug}`}
+        className="block bg-[#161616] border border-[#2a2a2a] rounded-3xl overflow-hidden hover:border-[#444] transition-colors cursor-pointer relative"
+      >
         <ImagePlaceholder image={project.image} />
-      </div>
+        {project.chips && (
+          <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+            {project.chips.map(chip => (
+              <span key={chip} className="text-sm px-3 py-1.5 rounded-lg text-white font-medium backdrop-blur-md" style={{background: 'rgba(50,50,50,0.75)'}}>{chip}</span>
+            ))}
+          </div>
+        )}
+      </a>
     </div>
   )
 }

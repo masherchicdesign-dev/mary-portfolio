@@ -73,7 +73,7 @@ function ImagePlaceholder({ image }) {
 function FeaturedCard({ project }) {
   return (
     <div>
-      <div className="flex items-center gap-4 mb-5">
+      <a href={`/work/${project.slug}`} className="flex items-center gap-4 mb-5 hover:opacity-80 transition-opacity">
         <div className="w-14 h-14 rounded-2xl bg-[#161616] border border-[#2a2a2a] flex items-center justify-center shrink-0 overflow-hidden">
           {project.icon
             ? <img src={project.icon} alt={project.title} className="w-full h-full object-cover" />
@@ -91,7 +91,7 @@ function FeaturedCard({ project }) {
             </p>
           )}
         </div>
-      </div>
+      </a>
       <a
         href={`/work/${project.slug}`}
         className="block bg-[#161616] border border-[#2a2a2a] rounded-3xl overflow-hidden hover:border-[#444] transition-colors cursor-pointer relative"

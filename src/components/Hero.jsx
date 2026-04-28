@@ -3,7 +3,7 @@ const COMPANIES = [
   { name: 'Sage Seller', domain: 'Amazon Sellers', logo: '/logos/sage-seller.svg' },
   { name: 'Yves Rocher', domain: 'Beauty & Retailers', logo: '/logos/yves-rocher.svg', logoClass: 'h-6' },
   { name: 'SONY', domain: 'Internal Learners', logo: '/logos/sony.svg', logoClass: 'h-3' },
-  { name: 'Kyivstar', domain: 'B2C Customers', logo: '/logos/kyivstar.svg', logoClass: 'h-8' },
+  { name: 'Kyivstar', domain: 'Kyivstarivciv', logo: '/logos/kyivstar.svg', logoClass: 'h-8' },
   { name: 'Royalty', domain: 'Crypto Investors', logo: '/logos/royalty.svg' },
 ]
 

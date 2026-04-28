@@ -8,9 +8,8 @@ export default function Nav({ scrolled }) {
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2 text-white font-semibold text-base tracking-tight">
-          <img src="/mlogo.svg" alt="M" className="h-5 w-auto" />
-          Masha Osadcha
+        <a href="#" className="text-white">
+          <span style={{fontFamily: "'Tiempos Headline', serif", fontWeight: 500}} className="text-base tracking-tight">Osadcha</span>
         </a>
 
         <div className="flex items-center gap-6">

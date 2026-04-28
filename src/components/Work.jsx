@@ -2,7 +2,7 @@ const projects = [
   {
     slug: 'competitive-insights',
     tags: ['0→1', 'Analytics', 'Creator Economy', 'C-level'],
-    chips: ['Ownership · 0→1', 'API Feasibility', 'Research', 'Design', 'Analytics'],
+    chips: ['Ownership · 0→1', 'API Feasibility', 'Full Cycle Design'],
     title: 'Competetive Insights',
     image: '/cases/competitive-insights.png',
     icon: '/logos/air-icon.png',
@@ -104,6 +104,11 @@ function FeaturedCard({ project }) {
             ))}
           </div>
         )}
+        <div className="absolute bottom-4 left-4 w-10 h-10 rounded-full border border-[#555] flex items-center justify-center transition-all duration-200 hover:bg-white hover:border-white group" style={{background: 'rgba(40,40,40,0.9)'}}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="stroke-white group-hover:stroke-black transition-colors duration-200">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+          </svg>
+        </div>
       </a>
     </div>
   )

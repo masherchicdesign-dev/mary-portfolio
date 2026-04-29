@@ -1,32 +1,30 @@
 export default function Contact() {
   return (
-    <section
-      id="contact"
-      className="max-w-6xl mx-auto px-6 py-24 text-center"
-    >
-      <h2 className="text-2xl font-semibold mb-4">Let&apos;s work together</h2>
-      <p className="text-[#888888] text-sm mb-10">
-        Open to Senior Product Designer and UX Architect roles.
-        <br />
-        Based in Ukraine · Available remotely.
-      </p>
-
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-        <a
-          href="mailto:masherchic.design@gmail.com"
-          className="text-white text-sm hover:text-[#888888] transition-colors underline underline-offset-4"
+    <section id="contact" className="max-w-6xl mx-auto px-6 py-16 flex justify-center">
+      <a
+        href="https://t.me/masherchic"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group inline-flex items-center gap-6 hover:opacity-80 transition-opacity"
+      >
+        <span
+          className="text-white font-bold leading-none"
+          style={{ fontSize: 'clamp(56px, 10vw, 140px)' }}
         >
-          masherchic.design@gmail.com
-        </a>
-        <a
-          href="https://linkedin.com/in/mary-osadcha"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white text-sm hover:text-[#888888] transition-colors underline underline-offset-4"
+          Get in touch
+        </span>
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="white"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          style={{ width: 'clamp(48px, 7vw, 100px)', height: 'clamp(48px, 7vw, 100px)', flexShrink: 0 }}
         >
-          LinkedIn
-        </a>
-      </div>
+          <path d="M7 17L17 7M17 7H7M17 7v10"/>
+        </svg>
+      </a>
     </section>
   )
 }

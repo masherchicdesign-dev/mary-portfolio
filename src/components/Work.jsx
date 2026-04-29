@@ -143,7 +143,7 @@ export default function Work() {
   const visible = projects.filter(p => p.slug === 'competitive-insights')
 
   return (
-    <section id="work" className="max-w-6xl mx-auto px-6 pt-12 pb-24">
+    <section id="work" className="max-w-6xl mx-auto px-6 pt-12 pb-8">
       <div className="flex flex-col gap-6">
         {visible.map((project) => (
           <FeaturedCard key={project.slug} project={project} />

@@ -47,7 +47,7 @@ export default function Hero() {
             href="mailto:masherchic.design@gmail.com"
             className="px-6 py-3 bg-white text-black text-sm font-semibold rounded-full hover:bg-gray-100 transition-colors inline-flex items-center gap-2"
           >
-            Send me email
+            Get in touch
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M7 17L17 7M17 7H7M17 7v10"/>
             </svg>

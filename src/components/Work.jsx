@@ -21,6 +21,8 @@ const projects = [
     tags: ['Ecosystem', 'UX Architecture', 'Strategy'],
     title: 'Creators Ecosystem',
     icon: '/logos/air-icon.png',
+    image: '/cases/creators-ecosystem.png',
+    comingSoon: true,
     description:
       'Mapped the full service ecosystem across 30+ products — defining UX architecture that aligned product strategy with creator value delivery.',
   },
@@ -92,24 +94,33 @@ function FeaturedCard({ project }) {
           )}
         </div>
       </a>
-      <a
-        href={`/work/${project.slug}`}
-        className="block bg-[#161616] border border-[#2a2a2a] rounded-3xl overflow-hidden hover:border-[#444] transition-colors cursor-pointer relative"
-      >
-        <ImagePlaceholder image={project.image} />
-        {project.chips && (
-          <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-            {project.chips.map(chip => (
-              <span key={chip} className="text-sm px-3 py-1.5 rounded-lg text-white font-medium backdrop-blur-md" style={{background: 'rgba(50,50,50,0.75)'}}>{chip}</span>
-            ))}
+      {project.comingSoon ? (
+        <div className="block bg-[#161616] border border-[#2a2a2a] rounded-3xl overflow-hidden relative">
+          <ImagePlaceholder image={project.image} />
+          <div className="absolute top-4 left-4">
+            <span className="text-sm px-3 py-1.5 rounded-lg text-white font-medium backdrop-blur-md" style={{background: 'rgba(50,50,50,0.75)'}}>Coming Soon</span>
           </div>
-        )}
-        <div className="absolute bottom-4 left-4 w-10 h-10 rounded-full border border-[#555] flex items-center justify-center transition-all duration-200 hover:border-[#888]" style={{background: 'rgba(40,40,40,0.9)'}} onMouseEnter={e => e.currentTarget.style.background='rgba(10,10,10,0.95)'} onMouseLeave={e => e.currentTarget.style.background='rgba(40,40,40,0.9)'}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M7 17L17 7M17 7H7M17 7v10"/>
-          </svg>
         </div>
-      </a>
+      ) : (
+        <a
+          href={`/work/${project.slug}`}
+          className="block bg-[#161616] border border-[#2a2a2a] rounded-3xl overflow-hidden hover:border-[#444] transition-colors cursor-pointer relative"
+        >
+          <ImagePlaceholder image={project.image} />
+          {project.chips && (
+            <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+              {project.chips.map(chip => (
+                <span key={chip} className="text-sm px-3 py-1.5 rounded-lg text-white font-medium backdrop-blur-md" style={{background: 'rgba(50,50,50,0.75)'}}>{chip}</span>
+              ))}
+            </div>
+          )}
+          <div className="absolute bottom-4 left-4 w-10 h-10 rounded-full border border-[#555] flex items-center justify-center transition-all duration-200 hover:border-[#888]" style={{background: 'rgba(40,40,40,0.9)'}} onMouseEnter={e => e.currentTarget.style.background='rgba(10,10,10,0.95)'} onMouseLeave={e => e.currentTarget.style.background='rgba(40,40,40,0.9)'}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M7 17L17 7M17 7H7M17 7v10"/>
+            </svg>
+          </div>
+        </a>
+      )}
     </div>
   )
 }

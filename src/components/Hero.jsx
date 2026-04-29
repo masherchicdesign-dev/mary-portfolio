@@ -13,7 +13,7 @@ export default function Hero() {
   return (
     <section className="pb-0">
       <div className="max-w-6xl mx-auto px-6 pt-32 pb-24">
-        <h1 className="text-[32px] font-medium leading-[40px] tracking-tight max-w-[640px] mb-5">
+        <h1 className="text-[48px] font-medium leading-[56px] tracking-tight max-w-[640px] mb-5">
           <span className="text-[#888888]">So hi,</span>
           <br />
           I&apos;m Masha Osadcha,
@@ -22,7 +22,7 @@ export default function Hero() {
         </h1>
 
         <p className="text-[#888888] text-sm leading-relaxed max-w-[450px] mb-6">
-          I help products make sense — for users, for business, and for the people who build them. I don&apos;t just build systems — I make them intuitive, scalable, and human, across AI infrastructure, Web3, and beyond.
+          I help products make sense — for users, for business, and for the people who build them. I don&apos;t just build systems — I make them intuitive, scalable, and human, across AI infrastructure, Web3,&nbsp;and&nbsp;beyond.
         </p>
 
         <div className="flex flex-wrap gap-2 mb-7">

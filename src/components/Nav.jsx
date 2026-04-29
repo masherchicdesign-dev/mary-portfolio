@@ -1,10 +1,8 @@
 export default function Nav({ scrolled }) {
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-[#0d0d0d]/80 backdrop-blur-md border-b border-[#2a2a2a]'
-          : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-[#2a2a2a] ${
+        scrolled ? 'bg-[#0d0d0d]/80 backdrop-blur-md' : 'bg-transparent'
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">

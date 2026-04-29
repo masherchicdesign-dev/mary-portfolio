@@ -5,10 +5,10 @@ export default function Contact() {
         href="https://t.me/masherchic"
         target="_blank"
         rel="noopener noreferrer"
-        className="group inline-flex items-center gap-6 hover:opacity-80 transition-opacity"
+        className="group inline-flex items-center gap-6 transition-opacity"
       >
         <span
-          className="text-white font-bold leading-none"
+          className="text-white font-bold leading-none group-hover:underline underline-offset-4 transition-all"
           style={{ fontSize: 'clamp(56px, 10vw, 140px)' }}
         >
           Get in touch

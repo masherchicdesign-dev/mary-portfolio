@@ -3,7 +3,7 @@ const projects = [
     slug: 'competitive-insights',
     tags: ['0→1', 'Analytics', 'Creator Economy', 'C-level'],
     chips: ['Ownership · 0→1', 'API Feasibility', 'Full Cycle Design'],
-    title: 'Competetive Insights',
+    title: 'Competitive Insights',
     image: '/cases/competitive-insights.png',
     icon: '/logos/air-icon.png',
     subtitle: 'AIR MEDIA-TECH',

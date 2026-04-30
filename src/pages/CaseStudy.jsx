@@ -215,10 +215,8 @@ export default function CaseStudy() {
           <div className="text-center mb-12">
             <p className="text-[#c8f563] text-sm mb-3 uppercase tracking-widest">User Research</p>
             <h2 className="text-3xl font-bold leading-tight mb-6">From prioritization to users: setting up the research</h2>
-            <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto">I designed a full research protocol. A moderator guide structured into stages: introduction and rapport building, context questions about how creators currently analyze competitors, prototype walkthrough with task-based scenarios, and a closing reflection block.</p>
-            <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto mt-4">The goal wasn't to test whether people liked the interface. It was to answer three specific questions: does this replace their current workflow, which metrics actually matter to them, and would they return to it weekly or use it once and move on.</p>
-            <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto mt-4">Before each session, I updated the AI prototype with real data tailored to that creator — niche, actual competitors, channel metrics. Every participant saw a version that felt built for them.</p>
-            <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto mt-4">9 creators. 45–68 minutes each. Online via Google Meet with prototype demonstration. Every session documented — individual profile, thematic analysis, executive summary.</p>
+            <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto">The goal wasn't to test whether people liked the interface. Three questions mattered: does this close the need for competitor research, is it easier than collecting data manually, and would they return weekly.</p>
+            <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto mt-4">Before each session I updated the AI prototype with real data tailored to that creator — niche, competitors, channel metrics. 9 sessions, 45–68 minutes each, fully documented.</p>
           </div>
           <ImageBlock src="/cases/research.png" alt="User Research" />
           <div className="bg-[#161616] border border-[#2a2a2a] rounded-2xl p-6 mt-4">
@@ -399,7 +397,8 @@ export default function CaseStudy() {
               </div>
             ))}
           </div>
-          <p className="text-[#888888] text-base leading-relaxed max-w-2xl">New analytics modules are now built with it as the reference point. What started as a hypothesis at a strategic session became part of AIR's core system.</p>
+          <p className="text-[#888888] text-base leading-relaxed max-w-2xl mb-8">New analytics modules are now built with it as the reference point. What started as a hypothesis at a strategic session became part of AIR's core system.</p>
+          <ImageBlock src="/cases/competitive-insights.png" alt="Competitive Insights" />
         </Section>
 
         {/* Key Takeaways */}

@@ -21,8 +21,8 @@ export default function Hero() {
           Product Designer
         </h1>
 
-        <p className="text-[#888888] text-sm leading-relaxed max-w-[450px] mb-6">
-          I help products make sense — for users, for business, and for the people who build them. I don&apos;t just build systems — I make them intuitive, scalable, and human, across AI infrastructure, Web3,&nbsp;and&nbsp;beyond.
+        <p className="text-[#888888] text-sm leading-relaxed max-w-[360px] mb-6">
+          I help products make sense: for users, for business, and for the people who build them. I don&apos;t just build systems. I make them intuitive, scalable, and human, across AI infrastructure, Web3,&nbsp;and&nbsp;beyond.
         </p>
 
         <div className="flex flex-wrap gap-2 mb-7">

@@ -108,7 +108,7 @@ export default function CaseStudy() {
 
         {/* The Challenge */}
         {false && <Section>
-          <div className="max-w-2xl mx-auto text-center mb-12">
+          <div className="max-w-[620px] mx-auto text-center mb-12">
             <SectionLabel>The Challenge</SectionLabel>
             <h2 className="text-3xl font-bold leading-tight mb-6">Creators were researching competitors manually for hours.</h2>
             <p className="text-[#888888] text-base leading-relaxed">YouTube creators were already analyzing competitors — manually, daily, across multiple tabs and spreadsheets. AIR had the data to make this effortless. But there was no product connecting the two, and no one had been asked to build it.<br /><br />The mission: create a tool where competitive intelligence isn't a separate workflow — it's built into the platform creators already use.</p>
@@ -156,12 +156,12 @@ export default function CaseStudy() {
 
         {/* Context */}
         <Section id="domain">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 max-w-[620px] mx-auto">
             <div className="flex justify-center mb-4">
               <span className="text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest">Audience & Domain</span>
             </div>
             <h2 className="text-3xl font-bold leading-tight mb-6">AIR is the #1 YouTube partner network</h2>
-            <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto">Every creator is focused on growth, monetization, and standing out in their niche. AIR meets creators where they are: adapting to their experience level and goals, from landing first stable results to addressing highly personal ambitions.</p>
+            <p className="text-[#888888] text-base leading-relaxed">Every creator is focused on growth, monetization, and standing out in their niche. AIR meets creators where they are: adapting to their experience level and goals, from landing first stable results to addressing highly personal ambitions.</p>
           </div>
           {false && <div className="bg-[#1a1a1a] rounded-3xl p-6 sm:p-10">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -181,7 +181,7 @@ export default function CaseStudy() {
           <div className="text-center mt-16 mb-8">
             <p className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">All apps in one place</p>
             <h2 className="text-3xl font-bold leading-tight mb-6">Web platform for channel growth</h2>
-            <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto">AIR is an ecosystem of products built to support that: giving creators the tools and conditions to grow their audience, hit their channel goals, and build something sustainable.</p>
+            <p className="text-[#888888] text-base leading-relaxed max-w-[620px] mx-auto">AIR is an ecosystem of products built to support that: giving creators the tools and conditions to grow their audience, hit their channel goals, and build something sustainable.</p>
           </div>
           <ImageBlock src="/cases/air-unified-ecosystem.png" alt="AIR builds a unified ecosystem" />
         </Section>
@@ -208,21 +208,21 @@ export default function CaseStudy() {
           <div className="text-center mb-12">
             <p className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">Ideation Workshop</p>
             <h2 className="text-3xl font-bold leading-tight mb-6">How did the team see the initiative?</h2>
-            <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto">To understand what was possible, what wasn't, and what was actually needed, I brought the stakeholders together. A workshop with the internal team: how they see the product, what features they want, what they'd already tried, and how it compares to what already exists on the market.</p>
+            <p className="text-[#888888] text-base leading-relaxed max-w-[620px] mx-auto">To understand what was possible, what wasn't, and what was actually needed, I brought the stakeholders together. A workshop with the internal team: how they see the product, what features they want, what they'd already tried, and how it compares to what already exists on the market.</p>
           </div>
           <ImageBlock src="/cases/workshop.png" alt="Workshop" />
           <div className="text-center mt-16 mb-12">
             <p id="label-competitor" className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">Competitor Analysis</p>
-            <h2 className="text-3xl font-bold leading-tight mb-6">And all of them looked the same — and equally mediocre.</h2>
-            <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto">I analyzed four direct competitors — SubSub, VidIQ, Tubular, and MyAIR — across functionality and UX. What I found was surprising: none of them covered even half of what creators said they needed. And visually, they all looked like the same product made by different teams. The gap was real, and it was wide.</p>
+            <h2 className="text-3xl font-bold leading-tight mb-6">They all looked the same.<br />And none of them were impressive.</h2>
+            <p className="text-[#888888] text-base leading-relaxed max-w-[620px] mx-auto">I analyzed four direct competitors — SubSub, VidIQ, Tubular, and MyAIR — across functionality and UX. What I found was surprising: none of them covered even half of what creators said they needed. And visually, they all looked like the same product made by different teams. The data inside was unclear and hard to read. The gap was real, and it was wide.</p>
           </div>
           <ImageBlock src="/cases/competitor-analytics.png" alt="Competitor Analytics" />
 
           <div className="text-center mt-16 mb-12">
             <p id="label-cjm" className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">Customer Journey</p>
             <h2 className="text-3xl font-bold leading-tight mb-6">Where does competitor analysis fit?</h2>
-            <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto">I mapped the full video creation process — from idea generation through publishing, promotion, and performance review. The finding was clear: competitor analysis happens at multiple points along the way. Before ideation — to understand what's trending in the niche.</p>
-            <div className="mt-6 p-5 bg-[#161616] border border-[#2a2a2a] rounded-2xl max-w-2xl mx-auto text-left">
+            <p className="text-[#888888] text-base leading-relaxed max-w-[620px] mx-auto">I mapped the full video creation process — from idea generation through publishing, promotion, and performance review. The finding was clear: competitor analysis happens at multiple points along the way. Before ideation — to understand what's trending in the niche.</p>
+            <div className="mt-6 p-5 bg-[#161616] border border-[#2a2a2a] rounded-2xl max-w-[620px] mx-auto text-left">
               <p className="text-[#888888] text-sm mb-1 uppercase tracking-widest">Observation → Design decision</p>
               <p className="text-white text-sm leading-relaxed">Competitor research isn't a one-time task — it's a recurring ritual. Building it into MyAIR means it becomes part of the workflow, not an interruption to it.</p>
             </div>
@@ -245,7 +245,7 @@ export default function CaseStudy() {
           <div className="text-center mb-12">
             <p id="label-prototype" className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">AI Prototype Testing</p>
             <h2 className="text-3xl font-bold leading-tight mb-6">Fast enough to test. Real enough to matter.</h2>
-            <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto">I put together the first prototype quickly — to show direction, not a final design. Ran two separate workshops: one with the KAM team, one with Support. Role-Based Scenarios, Think-Aloud, Dot Voting. Key feedback: unclear difference between Engagement metrics across screens, need for an average across all tracked channels, questions about interface language.</p>
+            <p className="text-[#888888] text-base leading-relaxed max-w-[620px] mx-auto">I put together the first prototype quickly — to show direction, not a final design. Ran two separate workshops: one with the KAM team, one with Support. Role-Based Scenarios, Think-Aloud, Dot Voting. Key feedback: unclear difference between Engagement metrics across screens, need for an average across all tracked channels, questions about interface language.</p>
           </div>
           <ImageBlock src="/cases/ai-prototype.png" alt="AI Prototype" />
         </Section>
@@ -255,8 +255,8 @@ export default function CaseStudy() {
           <div className="text-center mb-12">
             <p id="label-user-research" className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">User Research</p>
             <h2 className="text-3xl font-bold leading-tight mb-6">From prioritization to users: setting up the research</h2>
-            <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto">The goal wasn't to test whether people liked the interface. Three questions mattered: does this close the need for competitor research, is it easier than collecting data manually, and would they return weekly.</p>
-            <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto mt-4">Before each session I updated the AI prototype with real data tailored to that creator — niche, competitors, channel metrics. 9 sessions, 45–68 minutes each, fully documented.</p>
+            <p className="text-[#888888] text-base leading-relaxed max-w-[620px] mx-auto">The goal wasn't to test whether people liked the interface. Three questions mattered: does this close the need for competitor research, is it easier than collecting data manually, and would they return weekly.</p>
+            <p className="text-[#888888] text-base leading-relaxed max-w-[620px] mx-auto mt-4">Before each session I updated the AI prototype with real data tailored to that creator — niche, competitors, channel metrics. 9 sessions, 45–68 minutes each, fully documented.</p>
           </div>
           <ImageBlock src="/cases/research.png" alt="User Research" />
           <div className="bg-[#161616] border border-[#2a2a2a] rounded-2xl p-6 mt-4">
@@ -352,9 +352,9 @@ export default function CaseStudy() {
           <div className="text-center mb-12">
             <p id="label-events" className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">Events Library</p>
             <h2 className="text-3xl font-bold leading-tight mb-6">Before measuring, I built the measurement system.</h2>
-            <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto">Shipping the product wasn't enough. I needed to know what actually happens inside it.</p>
-            <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto mt-4">I created an events library from scratch — every user action documented: every modal view, every competitor added, every section opened, every skipped onboarding step. Each event mapped with its trigger, parameters, and values.</p>
-            <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto mt-4">Then I visualized it as an event map in Miro — connecting user scenarios to specific events, showing exactly where each signal fires in the journey.</p>
+            <p className="text-[#888888] text-base leading-relaxed max-w-[620px] mx-auto">Shipping the product wasn't enough. I needed to know what actually happens inside it.</p>
+            <p className="text-[#888888] text-base leading-relaxed max-w-[620px] mx-auto mt-4">I created an events library from scratch — every user action documented: every modal view, every competitor added, every section opened, every skipped onboarding step. Each event mapped with its trigger, parameters, and values.</p>
+            <p className="text-[#888888] text-base leading-relaxed max-w-[620px] mx-auto mt-4">Then I visualized it as an event map in Miro — connecting user scenarios to specific events, showing exactly where each signal fires in the journey.</p>
           </div>
           <ImageBlock src="/cases/events-map.png" alt="Events Map" />
         </Section>

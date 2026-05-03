@@ -7,9 +7,12 @@ function SectionLabel({ children }) {
   return <p className="text-[#888888] text-sm mb-3 uppercase tracking-widest">{children}</p>
 }
 
-function ImageBlock({ src, alt }) {
+function ImageBlock({ src, alt, onClick }) {
   return (
-    <div className="w-full rounded-2xl overflow-hidden bg-[#161616]">
+    <div
+      className={`w-full rounded-2xl overflow-hidden bg-[#161616] ${src ? 'cursor-zoom-in' : ''}`}
+      onClick={() => src && onClick && onClick(src, alt)}
+    >
       {src ? <img src={src} alt={alt || ''} className="w-full object-cover" /> : <div className="w-full aspect-video" />}
     </div>
   )
@@ -19,9 +22,44 @@ function Section({ children, className = '', id = '' }) {
   return <section id={id} className={`py-16 border-t border-[#2a2a2a] ${className}`}>{children}</section>
 }
 
+function Lightbox({ src, alt, onClose }) {
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') onClose() }
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', onKey)
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [onClose])
+
+  return (
+    <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 p-6 sm:p-12"
+      onClick={onClose}
+    >
+      <div
+        className="relative max-w-5xl w-full rounded-2xl overflow-hidden bg-[#161616] border border-[#2a2a2a]"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <img src={src} alt={alt || ''} className="w-full object-contain" />
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#0d0d0d]/80 flex items-center justify-center text-white hover:bg-[#2a2a2a] transition-colors"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  )
+}
+
 export default function CaseStudy() {
   const { slug } = useParams()
   const [scrolled, setScrolled] = useState(false)
+  const [lightbox, setLightbox] = useState(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10)
@@ -32,6 +70,7 @@ export default function CaseStudy() {
   return (
     <div className="bg-[#0d0d0d] text-white font-sans min-h-screen">
       <Nav scrolled={scrolled} />
+      {lightbox && <Lightbox src={lightbox.src} alt={lightbox.alt} onClose={() => setLightbox(null)} />}
 
       <main className="max-w-6xl mx-auto px-6 pt-32 pb-24">
 
@@ -176,14 +215,14 @@ export default function CaseStudy() {
             </div>
           </div>}
           <div className="mt-8">
-            <ImageBlock src="/cases/air-in-figures.png" alt="AIR in figures" />
+            <ImageBlock onClick={(src, alt) => setLightbox({ src, alt })} src="/cases/air-in-figures.png" alt="AIR in figures" />
           </div>
           <div className="text-center mt-16 mb-8">
             <p className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">All apps in one place</p>
             <h2 className="text-3xl font-bold leading-tight mb-6">Web platform for channel growth</h2>
             <p className="text-[#888888] text-base leading-relaxed max-w-[620px] mx-auto">AIR is an ecosystem of products built to support that: giving creators the tools and conditions to grow their audience, hit their channel goals, and build something sustainable.</p>
           </div>
-          <ImageBlock src="/cases/air-unified-ecosystem.png" alt="AIR builds a unified ecosystem" />
+          <ImageBlock onClick={(src, alt) => setLightbox({ src, alt })} src="/cases/air-unified-ecosystem.png" alt="AIR builds a unified ecosystem" />
         </Section>
 
         {/* Research */}
@@ -195,8 +234,8 @@ export default function CaseStudy() {
               <p className="text-[#888888] text-base leading-relaxed">We noticed a gradual drop in active sessions inside MyAIR. In a team workshop, the question came up: what do we build next to improve retention? I proposed building a dedicated section that aggregates competitor intelligence, a foundation to collect data for future services and a way to accelerate creator growth.<br /><br />Analyzing competitor videos is already a natural part of how creators prepare content. The idea resonated immediately.</p>
             </div>
             <div className="bg-[#161616] border border-[#2a2a2a] rounded-2xl p-6">
-              <div className="w-10 h-10 rounded-xl mb-4 flex items-center justify-center" style={{background: 'rgba(180,140,30,0.25)'}}>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#fbbf24" className="w-5 h-5">
+              <div className="w-10 h-10 rounded-xl mb-4 flex items-center justify-center bg-[#2a2a2a]">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#888888" className="w-5 h-5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
                 </svg>
               </div>
@@ -210,13 +249,13 @@ export default function CaseStudy() {
             <h2 className="text-3xl font-bold leading-tight mb-6">How did the team see the initiative?</h2>
             <p className="text-[#888888] text-base leading-relaxed max-w-[620px] mx-auto">To understand what was possible, what wasn't, and what was actually needed, I brought the stakeholders together. A workshop with the internal team: how they see the product, what features they want, what they'd already tried, and how it compares to what already exists on the market.</p>
           </div>
-          <ImageBlock src="/cases/workshop.png" alt="Workshop" />
+          <ImageBlock onClick={(src, alt) => setLightbox({ src, alt })} src="/cases/workshop.png" alt="Workshop" />
           <div className="text-center mt-16 mb-12">
             <p id="label-competitor" className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">Competitor Analysis</p>
             <h2 className="text-3xl font-bold leading-tight mb-6">They all looked the same.<br />And none of them were impressive.</h2>
             <p className="text-[#888888] text-base leading-relaxed max-w-[620px] mx-auto">I analyzed four direct competitors: SubSub, VidIQ, Tubular, and MyAIR, across functionality and UX. What I found was surprising: none of them covered even half of what creators said they needed. And visually, they all looked like the same product made by different teams. The data inside was unclear and hard to read. The gap was real, and it was wide.</p>
           </div>
-          <ImageBlock src="/cases/competitor-analytics.png" alt="Competitor Analytics" />
+          <ImageBlock onClick={(src, alt) => setLightbox({ src, alt })} src="/cases/competitor-analytics.png" alt="Competitor Analytics" />
 
           <div className="text-center mt-16 mb-12">
             <p id="label-cjm" className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">Customer Journey</p>
@@ -224,20 +263,35 @@ export default function CaseStudy() {
             <p className="text-[#888888] text-base leading-relaxed max-w-[620px] mx-auto">I mapped the full video creation process: from idea generation through publishing, promotion, and performance review. Competitor analysis happens at multiple points along the way before ideation, to understand what's trending in the niche. I also mapped all of our existing products against this journey to show that the ideation and discovery phase wasn't covered by any of our current offerings, leaving a visible gap in our value proposition.</p>
           </div>
           <div className="bg-[#161616] border border-[#2a2a2a] rounded-2xl overflow-hidden">
-            <img src="/cases/cjm.png" alt="Customer Journey Map" className="w-full object-cover" />
+            <img src="/cases/cjm.png" alt="Customer Journey Map" className="w-full object-cover cursor-zoom-in" onClick={() => setLightbox({ src: '/cases/cjm.png', alt: 'Customer Journey Map' })} />
             <div className="p-5">
               <p className="text-[#888888] text-sm mb-1 uppercase tracking-widest">Observation → Design decision</p>
               <p className="text-white text-sm leading-relaxed">Competitor research isn't a one-time task. It's a recurring ritual.<br />Building it into MyAIR means it becomes part of the workflow, not an interruption to it.</p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12 items-start">
-            <div>
-              <p id="label-api" className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">Turning Point</p>
+          <div className="mt-16">
+            <div className="text-center mb-8">
+              <p id="label-api" className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">API Feasibility</p>
               <h2 className="text-3xl font-bold leading-tight mb-6">YouTube Legacy</h2>
-              <p className="text-[#888888] text-base leading-relaxed">"Figure out how to stay within YouTube's policies — and we'll build it." I went through all competitors not by screens, but by data sources. Everyone pulls the same thing: exclusively from YouTube's public API. No closed partnerships. No violations. Which means we can do the same.</p>
+              <p className="text-[#888888] text-base leading-relaxed max-w-[620px] mx-auto">"Figure out how to stay within YouTube's policies and we'll build it." I went through all competitors not by screens, but by data sources. I collected all the necessary metrics to run a detailed formula analysis. Everyone pulls the same thing: exclusively from YouTube's public API. No closed partnerships. No violations. Which means we can do the same without touching any private client data.</p>
             </div>
-            <ImageBlock src="/cases/api.png" alt="YouTube API" />
+            <ImageBlock onClick={(src, alt) => setLightbox({ src, alt })} src="/cases/api.png" alt="YouTube API" />
+          </div>
+
+          <div className="mt-16">
+            <div className="text-center mb-8">
+              <p className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">Secondary Research</p>
+              <h2 className="text-3xl font-bold leading-tight mb-6">What creators say when no one's asking</h2>
+              <p className="text-[#888888] text-base leading-relaxed max-w-[620px] mx-auto">Before going to users directly, I researched what creators were already saying publicly. Reddit threads, YouTube forums, creator communities — the same pain points kept coming up: hours spent manually tracking competitors, no single place to see everything, and no way to benchmark performance without switching between five different tools.</p>
+            </div>
+            <div className="bg-[#161616] border border-[#2a2a2a] rounded-2xl overflow-hidden">
+              <img src="/cases/secondary-research.png" alt="Secondary Research" className="w-full object-cover cursor-zoom-in" onClick={() => setLightbox({ src: '/cases/secondary-research.png', alt: 'Secondary Research' })} />
+              <div className="p-5 max-w-[50%]">
+                <p className="text-[#888888] text-sm mb-1 uppercase tracking-widest">Key pattern</p>
+                <p className="text-white text-sm leading-relaxed">The biggest frustration was having to maintain spreadsheets manually while data updates constantly, and having everything scattered across different platforms with no centralized place to see it all.</p>
+              </div>
+            </div>
           </div>
 
         </Section>
@@ -247,9 +301,15 @@ export default function CaseStudy() {
           <div className="text-center mb-12">
             <p id="label-prototype" className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">AI Prototype Testing</p>
             <h2 className="text-3xl font-bold leading-tight mb-6">Fast enough to test. Real enough to matter.</h2>
-            <p className="text-[#888888] text-base leading-relaxed max-w-[620px] mx-auto">I put together the first prototype quickly, to show direction, not a final design. Ran two separate workshops: one with the KAM team, one with Support. Role-Based Scenarios, Think-Aloud, Dot Voting. Key feedback: unclear difference between Engagement metrics across screens, need for an average across all tracked channels, questions about interface language.</p>
+            <p className="text-[#888888] text-base leading-relaxed max-w-[620px] mx-auto">I put together the first prototype quickly, to show direction, not a final design. Ran two separate workshops: one with the KAM team, one with Support. Role-Based Scenarios, Think-Aloud, Dot Voting.</p>
           </div>
-          <ImageBlock src="/cases/ai-prototype.png" alt="AI Prototype" />
+          <div className="bg-[#161616] border border-[#2a2a2a] rounded-2xl overflow-hidden">
+            <img src="/cases/ai-prototype.png" alt="AI Prototype" className="w-full object-cover cursor-zoom-in" onClick={() => setLightbox({ src: '/cases/ai-prototype.png', alt: 'AI Prototype' })} />
+            <div className="p-5 max-w-[50%]">
+              <p className="text-[#888888] text-sm mb-1 uppercase tracking-widest">Key feedback</p>
+              <p className="text-white text-sm leading-relaxed">Unclear difference between Engagement metrics across screens, need for an average across all tracked channels, questions about interface language.</p>
+            </div>
+          </div>
         </Section>
 
         {/* User Research Setup */}
@@ -260,7 +320,7 @@ export default function CaseStudy() {
             <p className="text-[#888888] text-base leading-relaxed max-w-[620px] mx-auto">The goal wasn't to test whether people liked the interface. Three questions mattered: does this close the need for competitor research, is it easier than collecting data manually, and would they return weekly.</p>
             <p className="text-[#888888] text-base leading-relaxed max-w-[620px] mx-auto mt-4">Before each session I updated the AI prototype with real data tailored to that creator: niche, competitors, channel metrics. 9 sessions, 45–68 minutes each, fully documented.</p>
           </div>
-          <ImageBlock src="/cases/research.png" alt="User Research" />
+          <ImageBlock onClick={(src, alt) => setLightbox({ src, alt })} src="/cases/research.png" alt="User Research" />
           <div className="bg-[#161616] border border-[#2a2a2a] rounded-2xl p-6 mt-4">
             <div className="w-10 h-10 rounded-xl mb-4 flex items-center justify-center" style={{background: 'rgba(180,140,30,0.25)'}}>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#fbbf24" className="w-5 h-5">
@@ -344,9 +404,9 @@ export default function CaseStudy() {
                 ))}
               </div>
             </div>
-            <ImageBlock src="/cases/competitive-insights-screen.png" alt="Competitive Insights UI" />
+            <ImageBlock onClick={(src, alt) => setLightbox({ src, alt })} src="/cases/competitive-insights-screen.png" alt="Competitive Insights UI" />
           </div>
-          <ImageBlock src="/cases/channel-videos-analytics.png" alt="Channel Videos Analytics" />
+          <ImageBlock onClick={(src, alt) => setLightbox({ src, alt })} src="/cases/channel-videos-analytics.png" alt="Channel Videos Analytics" />
         </Section>
 
         {/* Measurement System */}
@@ -358,7 +418,7 @@ export default function CaseStudy() {
             <p className="text-[#888888] text-base leading-relaxed max-w-[620px] mx-auto mt-4">I created an events library from scratch: every user action documented, every modal view, every competitor added, every section opened, every skipped onboarding step. Each event mapped with its trigger, parameters, and values.</p>
             <p className="text-[#888888] text-base leading-relaxed max-w-[620px] mx-auto mt-4">Then I visualized it as an event map in Miro, connecting user scenarios to specific events, showing exactly where each signal fires in the journey.</p>
           </div>
-          <ImageBlock src="/cases/events-map.png" alt="Events Map" />
+          <ImageBlock onClick={(src, alt) => setLightbox({ src, alt })} src="/cases/events-map.png" alt="Events Map" />
         </Section>
 
         {/* Adoption */}
@@ -369,7 +429,7 @@ export default function CaseStudy() {
               <h2 className="text-3xl font-bold leading-tight mb-6">How we measured what actually happened.</h2>
               <p className="text-[#888888] text-base leading-relaxed">Then I pulled raw production data and built my own segmentation methodology for returning users. 48.4% of the total client base engaged with the product in the first weeks. Three segments: HIGH, MED, LOW.</p>
             </div>
-            <ImageBlock src="/cases/weeks.png" alt="Weekly engagement data" />
+            <ImageBlock onClick={(src, alt) => setLightbox({ src, alt })} src="/cases/weeks.png" alt="Weekly engagement data" />
           </div>
 
           {/* Data findings */}
@@ -440,7 +500,7 @@ export default function CaseStudy() {
             ))}
           </div>
           <p className="text-[#888888] text-base leading-relaxed max-w-2xl mb-8">New analytics modules are now built with it as the reference point. What started as a hypothesis at a strategic session became part of AIR's core system.</p>
-          <ImageBlock src="/cases/competitive-insights.png" alt="Competitive Insights" />
+          <ImageBlock onClick={(src, alt) => setLightbox({ src, alt })} src="/cases/competitive-insights.png" alt="Competitive Insights" />
         </Section>
 
         {/* Key Takeaways */}

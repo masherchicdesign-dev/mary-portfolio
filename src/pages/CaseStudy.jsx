@@ -191,11 +191,26 @@ export default function CaseStudy() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 items-start">
             <div>
               <p id="label-workshop" className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">Problem Statement</p>
-              <h2 className="text-3xl font-bold leading-tight mb-6">Strategic Workshop</h2>
-              <p className="text-[#888888] text-base leading-relaxed">To understand what was possible, what wasn't, and what was actually needed — I brought the stakeholders together. A workshop with the internal team: how they see the product, what features they want, what they'd already tried.</p>
+              <h2 className="text-3xl font-bold leading-tight mb-6">The Core Hypothesis</h2>
+              <p className="text-[#888888] text-base leading-relaxed">We noticed a gradual drop in active sessions inside MyAIR. In a team workshop, the question came up: what do we build next to improve retention? I proposed building a dedicated section that aggregates competitor intelligence, a foundation to collect data for future services and a way to accelerate creator growth.<br /><br />Analyzing competitor videos is already a natural part of how creators prepare content. The idea resonated immediately.</p>
             </div>
-            <ImageBlock src="/cases/workshop.png" alt="Workshop" />
+            <div className="bg-[#161616] border border-[#2a2a2a] rounded-2xl p-6">
+              <div className="w-10 h-10 rounded-xl mb-4 flex items-center justify-center" style={{background: 'rgba(180,140,30,0.25)'}}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#fbbf24" className="w-5 h-5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                </svg>
+              </div>
+              <h3 className="text-base font-semibold mb-2">For creators posting 1–3 times a week, returning weekly is natural. It matches their workflow.</h3>
+              <p className="text-[#888888] text-sm leading-relaxed">Weekly visits would create a natural entry point for cross-product discovery and increase client LTV across the ecosystem.</p>
+            </div>
           </div>
+          <hr className="border-t border-[#2a2a2a] my-12" />
+          <div className="text-center mb-12">
+            <p className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">Ideation Workshop</p>
+            <h2 className="text-3xl font-bold leading-tight mb-6">How did the team see the initiative?</h2>
+            <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto">To understand what was possible, what wasn't, and what was actually needed, I brought the stakeholders together. A workshop with the internal team: how they see the product, what features they want, what they'd already tried, and how it compares to what already exists on the market.</p>
+          </div>
+          <ImageBlock src="/cases/workshop.png" alt="Workshop" />
           <div className="text-center mt-16 mb-12">
             <p id="label-competitor" className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">Competitor Analysis</p>
             <h2 className="text-3xl font-bold leading-tight mb-6">And all of them looked the same — and equally mediocre.</h2>

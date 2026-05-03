@@ -287,7 +287,7 @@ export default function CaseStudy() {
             </div>
             <div className="bg-[#161616] border border-[#2a2a2a] rounded-2xl overflow-hidden">
               <img src="/cases/secondary-research.png" alt="Secondary Research" className="w-full object-cover cursor-zoom-in" onClick={() => setLightbox({ src: '/cases/secondary-research.png', alt: 'Secondary Research' })} />
-              <div className="p-5 max-w-[50%]">
+              <div className="p-5 sm:max-w-[50%]">
                 <p className="text-[#888888] text-sm mb-1 uppercase tracking-widest">Key pattern</p>
                 <p className="text-white text-sm leading-relaxed">The biggest frustration was having to maintain spreadsheets manually while data updates constantly, and having everything scattered across different platforms with no centralized place to see it all.</p>
               </div>
@@ -305,7 +305,7 @@ export default function CaseStudy() {
           </div>
           <div className="bg-[#161616] border border-[#2a2a2a] rounded-2xl overflow-hidden">
             <img src="/cases/ai-prototype.png" alt="AI Prototype" className="w-full object-cover cursor-zoom-in" onClick={() => setLightbox({ src: '/cases/ai-prototype.png', alt: 'AI Prototype' })} />
-            <div className="p-5 max-w-[50%]">
+            <div className="p-5 sm:max-w-[50%]">
               <p className="text-[#888888] text-sm mb-1 uppercase tracking-widest">Key feedback</p>
               <p className="text-white text-sm leading-relaxed">Unclear difference between Engagement metrics across screens, need for an average across all tracked channels, questions about interface language.</p>
             </div>

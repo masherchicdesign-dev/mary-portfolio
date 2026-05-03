@@ -30,13 +30,6 @@ const projects = [
       'Mapped the full service ecosystem across 30+ products — defining UX architecture that aligned product strategy with creator value delivery.',
   },
   {
-    slug: 'royalty',
-    tags: ['0→1', 'Crypto', 'Startup'],
-    title: 'Royalty',
-    description:
-      'Designed a blockchain marketplace for creator revenue tokenization — from concept to beta launch, navigating legal ambiguity and evolving product vision.',
-  },
-  {
     slug: 'oxis-ai-toolkit',
     tags: ['AI Tooling', '0→1', 'Design System'],
     chips: ['Leadership', 'Managed Design Function', 'Full Cycle Design'],
@@ -48,6 +41,19 @@ const projects = [
     comingSoon: true,
     description:
       'Designed an AI toolkit for YouTube creators from scratch — Comments Analyzer, Metadata Lab, and Idea Generator — across full OAuth, payment, and ecosystem flows.',
+  },
+  {
+    slug: 'royalty',
+    tags: ['0→1', 'Crypto', 'Startup'],
+    chips: ['0→1', 'Web3', 'Crypto'],
+    title: 'Royalty Web3 Platform',
+    icon: '/logos/royalty-icon.svg',
+    subtitle: 'AIR MEDIA-TECH',
+    metric: 'Coming Soon',
+    image: '',
+    comingSoon: true,
+    description:
+      'Designed a blockchain marketplace for creator revenue tokenization — from concept to beta launch, navigating legal ambiguity and evolving product vision.',
   },
   {
     slug: 'ai-metadata-translation',
@@ -162,7 +168,7 @@ function Card({ project }) {
 }
 
 export default function Work() {
-  const visible = projects.filter(p => p.slug === 'competitive-insights' || p.slug === 'creators-ecosystem' || p.slug === 'oxis-ai-toolkit')
+  const visible = projects.filter(p => ['competitive-insights', 'creators-ecosystem', 'oxis-ai-toolkit'].includes(p.slug))
 
   return (
     <section id="work" className="max-w-6xl mx-auto px-6 pt-12 pb-8">

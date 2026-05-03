@@ -15,8 +15,8 @@ function ImageBlock({ src, alt }) {
   )
 }
 
-function Section({ children, className = '' }) {
-  return <section className={`py-16 border-t border-[#2a2a2a] ${className}`}>{children}</section>
+function Section({ children, className = '', id = '' }) {
+  return <section id={id} className={`py-16 border-t border-[#2a2a2a] ${className}`}>{children}</section>
 }
 
 export default function CaseStudy() {
@@ -50,15 +50,17 @@ export default function CaseStudy() {
               <img src="/logos/air-icon.png" alt="AIR" className="w-full h-full object-cover" />
             </div>
             <h1 className="text-[40px] font-bold leading-[1.15] tracking-tight mb-6">
-              Competitive Analytics Hub for YouTube Creators
+              Competitive Analytics Hub
             </h1>
-            <p className="text-[#888888] text-base leading-relaxed mb-6">
-              A competitive analytics tool for YouTube creators — built from scratch, validated with real creators, and measured end-to-end in production, achieving 77% weekly return rate among power users.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {['Ownership · 0→1', 'API Feasibility', 'Full Cycle Design'].map(tag => (
-                <span key={tag} className="text-sm px-3 py-1.5 rounded-lg text-white font-medium backdrop-blur-md" style={{background: 'rgba(50,50,50,0.75)'}}>{tag}</span>
-              ))}
+            <div className="w-fit">
+              <p className="text-[#888888] text-base leading-relaxed mb-6 max-w-[400px]">
+                One of the core products within the MyAIR ecosystem, a B2B platform built for YouTube creator growth. I initiated this product from scratch, led the full cycle from hypothesis to production, and measured adoption end-to-end — achieving 77% weekly return rate among power users.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {['Ownership · 0→1', 'API Feasibility', 'Full Cycle Design'].map(tag => (
+                  <span key={tag} className="text-sm px-3 py-1.5 rounded-lg text-white font-medium backdrop-blur-md" style={{background: 'rgba(50,50,50,0.75)'}}>{tag}</span>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -73,8 +75,11 @@ export default function CaseStudy() {
                 <p className="text-white font-medium">6 months</p>
               </div>
               <div>
-                <p className="text-[#888888] text-sm mb-1">Team</p>
-                <p className="text-white font-medium">8 people</p>
+                <p className="text-[#888888] text-sm mb-2">Users</p>
+                <span className="text-white text-sm px-3 py-1 border border-[#2a2a2a] rounded-full inline-flex items-center gap-1.5">
+                  <img src="/youtube.svg" alt="YouTube" className="w-3.5 h-auto brightness-0 invert" />
+                  YouTube Creators
+                </span>
               </div>
               <div>
                 <p className="text-[#888888] text-sm mb-1">Market</p>
@@ -84,8 +89,17 @@ export default function CaseStudy() {
             <div>
               <p className="text-[#888888] text-sm mb-3">Deliverables</p>
               <div className="flex flex-wrap gap-2">
-                {['Competitor Analysis', 'Customer Journey Map', 'API Feasibility', 'Secondary Research', 'AI Prototype', 'Design', 'Events Map', 'Adoption Methodology'].map(d => (
-                  <span key={d} className="text-[#888888] text-sm px-3 py-1 border border-[#2a2a2a] rounded-full">{d}</span>
+                {[
+                  { label: 'Competitor Analysis', href: '#label-competitor' },
+                  { label: 'Customer Journey Map', href: '#label-cjm' },
+                  { label: 'API Feasibility', href: '#label-api' },
+                  { label: 'Secondary Research', href: '#label-workshop' },
+                  { label: 'AI Prototype', href: '#label-prototype' },
+                  { label: 'Design', href: '#label-design' },
+                  { label: 'Events Map', href: '#label-events' },
+                  { label: 'Adoption Methodology', href: '#label-adoption' },
+                ].map(d => (
+                  <a key={d.label} href={d.href} className="text-[#888888] text-sm px-3 py-1 border border-[#2a2a2a] rounded-full hover:text-white hover:border-white transition-colors no-underline">{d.label}</a>
                 ))}
               </div>
             </div>
@@ -141,13 +155,15 @@ export default function CaseStudy() {
         </Section>}
 
         {/* Context */}
-        <Section>
+        <Section id="domain">
           <div className="text-center mb-12">
-            <p className="text-[#c8f563] text-sm mb-3 uppercase tracking-widest">Audience & Domain</p>
-            <h2 className="text-3xl font-bold leading-tight mb-6">AIR is the largest YouTube creators ecosystem in Ukraine.</h2>
-            <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto">A YouTube creator is a business. They grow channels, build audiences, and compete for attention in their niche — every single day. AIR supports them through a partner program. But to stay relevant, creators needed a reason to open the platform regularly.</p>
+            <div className="flex justify-center mb-4">
+              <span className="text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest">Audience & Domain</span>
+            </div>
+            <h2 className="text-3xl font-bold leading-tight mb-6">AIR is the #1 YouTube partner network</h2>
+            <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto">Every creator is focused on growth, monetization, and standing out in their niche. AIR meets creators where they are: adapting to their experience level and goals, from landing first stable results to addressing highly personal ambitions.</p>
           </div>
-          <div className="bg-[#1a1a1a] rounded-3xl p-6 sm:p-10">
+          {false && <div className="bg-[#1a1a1a] rounded-3xl p-6 sm:p-10">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="bg-[#0d0d0d] border border-[#2a2a2a] rounded-2xl p-6">
                 <p className="text-[#888888] text-sm mb-2 uppercase tracking-widest">The strategic question</p>
@@ -158,28 +174,37 @@ export default function CaseStudy() {
                 <p className="text-white text-base font-medium leading-relaxed">A competitive analytics hub built directly inside MyAIR. Not a separate tool — a reason to come back every week.</p>
               </div>
             </div>
+          </div>}
+          <div className="mt-8">
+            <ImageBlock src="/cases/air-in-figures.png" alt="AIR in figures" />
           </div>
+          <div className="text-center mt-16 mb-8">
+            <p className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">All apps in one place</p>
+            <h2 className="text-3xl font-bold leading-tight mb-6">Web platform for channel growth</h2>
+            <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto">AIR is an ecosystem of products built to support that: giving creators the tools and conditions to grow their audience, hit their channel goals, and build something sustainable.</p>
+          </div>
+          <ImageBlock src="/cases/air-unified-ecosystem.png" alt="AIR builds a unified ecosystem" />
         </Section>
 
         {/* Research */}
-        <Section>
+        <Section id="research">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 items-start">
             <div>
-              <p className="text-[#c8f563] text-sm mb-3 uppercase tracking-widest">Research</p>
+              <p id="label-workshop" className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">Problem Statement</p>
               <h2 className="text-3xl font-bold leading-tight mb-6">Strategic Workshop</h2>
               <p className="text-[#888888] text-base leading-relaxed">To understand what was possible, what wasn't, and what was actually needed — I brought the stakeholders together. A workshop with the internal team: how they see the product, what features they want, what they'd already tried.</p>
             </div>
             <ImageBlock src="/cases/workshop.png" alt="Workshop" />
           </div>
           <div className="text-center mt-16 mb-12">
-            <p className="text-[#c8f563] text-sm mb-3 uppercase tracking-widest">Competitor Analysis</p>
+            <p id="label-competitor" className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">Competitor Analysis</p>
             <h2 className="text-3xl font-bold leading-tight mb-6">And all of them looked the same — and equally mediocre.</h2>
             <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto">I analyzed four direct competitors — SubSub, VidIQ, Tubular, and MyAIR — across functionality and UX. What I found was surprising: none of them covered even half of what creators said they needed. And visually, they all looked like the same product made by different teams. The gap was real, and it was wide.</p>
           </div>
           <ImageBlock src="/cases/competitor-analytics.png" alt="Competitor Analytics" />
 
           <div className="text-center mt-16 mb-12">
-            <p className="text-[#c8f563] text-sm mb-3 uppercase tracking-widest">Customer Journey</p>
+            <p id="label-cjm" className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">Customer Journey</p>
             <h2 className="text-3xl font-bold leading-tight mb-6">Where does competitor analysis fit?</h2>
             <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto">I mapped the full video creation process — from idea generation through publishing, promotion, and performance review. The finding was clear: competitor analysis happens at multiple points along the way. Before ideation — to understand what's trending in the niche.</p>
             <div className="mt-6 p-5 bg-[#161616] border border-[#2a2a2a] rounded-2xl max-w-2xl mx-auto text-left">
@@ -191,7 +216,7 @@ export default function CaseStudy() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12 items-start">
             <div>
-              <p className="text-[#c8f563] text-sm mb-3 uppercase tracking-widest">Turning Point</p>
+              <p id="label-api" className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">Turning Point</p>
               <h2 className="text-3xl font-bold leading-tight mb-6">YouTube Legacy</h2>
               <p className="text-[#888888] text-base leading-relaxed">"Figure out how to stay within YouTube's policies — and we'll build it." I went through all competitors not by screens, but by data sources. Everyone pulls the same thing — exclusively from YouTube's public API. No closed partnerships. No violations. Which means we can do the same.</p>
             </div>
@@ -201,9 +226,9 @@ export default function CaseStudy() {
         </Section>
 
         {/* AI Prototype */}
-        <Section>
+        <Section id="prototype">
           <div className="text-center mb-12">
-            <p className="text-[#c8f563] text-sm mb-3 uppercase tracking-widest">AI Prototype Testing</p>
+            <p id="label-prototype" className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">AI Prototype Testing</p>
             <h2 className="text-3xl font-bold leading-tight mb-6">Fast enough to test. Real enough to matter.</h2>
             <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto">I put together the first prototype quickly — to show direction, not a final design. Ran two separate workshops: one with the KAM team, one with Support. Role-Based Scenarios, Think-Aloud, Dot Voting. Key feedback: unclear difference between Engagement metrics across screens, need for an average across all tracked channels, questions about interface language.</p>
           </div>
@@ -211,9 +236,9 @@ export default function CaseStudy() {
         </Section>
 
         {/* User Research Setup */}
-        <Section>
+        <Section id="user-research">
           <div className="text-center mb-12">
-            <p className="text-[#c8f563] text-sm mb-3 uppercase tracking-widest">User Research</p>
+            <p id="label-user-research" className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">User Research</p>
             <h2 className="text-3xl font-bold leading-tight mb-6">From prioritization to users: setting up the research</h2>
             <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto">The goal wasn't to test whether people liked the interface. Three questions mattered: does this close the need for competitor research, is it easier than collecting data manually, and would they return weekly.</p>
             <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto mt-4">Before each session I updated the AI prototype with real data tailored to that creator — niche, competitors, channel metrics. 9 sessions, 45–68 minutes each, fully documented.</p>
@@ -231,9 +256,9 @@ export default function CaseStudy() {
         </Section>
 
         {/* Solution */}
-        <Section>
+        <Section id="solution">
           <div className="text-center mb-12">
-            <p className="text-[#c8f563] text-sm mb-3 uppercase tracking-widest">Solution</p>
+            <p className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">Solution</p>
             <h2 className="text-3xl font-bold leading-tight">Decisions that defined the product architecture.</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
@@ -280,7 +305,7 @@ export default function CaseStudy() {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-8">
             <div>
-              <p className="text-[#c8f563] text-sm mb-4 uppercase tracking-widest">The UI Solution</p>
+              <p id="label-design" className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">The UI Solution</p>
               <h2 className="text-[32px] font-bold leading-tight mb-6">Two sections. One product.</h2>
               <p className="text-[#888888] text-base leading-relaxed mb-8">Competitive intelligence embedded into the platform creators already use — not a standalone tool they'd have to remember to open.</p>
               <div className="flex flex-col gap-3">
@@ -308,9 +333,9 @@ export default function CaseStudy() {
         </Section>
 
         {/* Measurement System */}
-        <Section>
+        <Section id="events-map">
           <div className="text-center mb-12">
-            <p className="text-[#c8f563] text-sm mb-3 uppercase tracking-widest">Events Library</p>
+            <p id="label-events" className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">Events Library</p>
             <h2 className="text-3xl font-bold leading-tight mb-6">Before measuring, I built the measurement system.</h2>
             <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto">Shipping the product wasn't enough. I needed to know what actually happens inside it.</p>
             <p className="text-[#888888] text-base leading-relaxed max-w-2xl mx-auto mt-4">I created an events library from scratch — every user action documented: every modal view, every competitor added, every section opened, every skipped onboarding step. Each event mapped with its trigger, parameters, and values.</p>
@@ -320,10 +345,10 @@ export default function CaseStudy() {
         </Section>
 
         {/* Adoption */}
-        <Section>
+        <Section id="adoption">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
             <div>
-              <SectionLabel>Adoption</SectionLabel>
+              <p id="label-adoption" className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">Adoption</p>
               <h2 className="text-3xl font-bold leading-tight mb-6">How we measured what actually happened.</h2>
               <p className="text-[#888888] text-base leading-relaxed">Then I pulled raw production data and built my own segmentation methodology for returning users. 48.4% of the total client base engaged with the product in the first weeks. Three segments: HIGH, MED, LOW.</p>
             </div>

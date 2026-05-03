@@ -54,7 +54,7 @@ export default function CaseStudy() {
             </h1>
             <div className="w-fit">
               <p className="text-[#888888] text-base leading-relaxed mb-6 max-w-[400px]">
-                One of the core products within the MyAIR ecosystem, a B2B platform built for YouTube creator growth. I initiated this product from scratch, led the full cycle from hypothesis to production, and measured adoption end-to-end — achieving 77% weekly return rate among power users.
+                One of the core products within the MyAIR ecosystem, a B2B platform built for YouTube creator growth.<br /><br />I initiated this product from scratch, led the full cycle from hypothesis to production, and measured adoption end-to-end — achieving 77% weekly return rate among power users.
               </p>
               <div className="flex flex-wrap gap-2">
                 {['Ownership · 0→1', 'API Feasibility', 'Full Cycle Design'].map(tag => (

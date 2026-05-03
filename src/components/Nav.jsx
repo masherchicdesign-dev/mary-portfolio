@@ -19,7 +19,7 @@ export default function Nav({ scrolled }) {
               Work
             </a>
             <a
-              href="https://drive.google.com/file/d/1dDAI3Iu0gBHoXuC_p20IMbznZ34QM5BX/view?usp=sharing"
+              href="https://drive.google.com/file/d/18KlsDMfZpD0q-AU0RcuTlCTAk9W0Cvps/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#888888] hover:text-white text-sm transition-colors"

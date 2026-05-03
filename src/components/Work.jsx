@@ -19,8 +19,11 @@ const projects = [
   {
     slug: 'creators-ecosystem',
     tags: ['Ecosystem', 'UX Architecture', 'Strategy'],
+    chips: ['UX Architecture', 'Customer Experience', 'Systems Design', 'Strategy'],
     title: 'Creators Ecosystem',
-    icon: '/logos/air-icon.png',
+    icon: '/logos/air-icon.svg',
+    subtitle: 'AIR MEDIA-TECH',
+    metric: 'Coming Soon',
     image: '/cases/creators-ecosystem.png',
     comingSoon: true,
     description:
@@ -36,7 +39,13 @@ const projects = [
   {
     slug: 'oxis-ai-toolkit',
     tags: ['AI Tooling', '0→1', 'Design System'],
-    title: 'Oxis AI Toolkit',
+    chips: ['Leadership', 'Managed Design Function', 'Full Cycle Design'],
+    title: 'OXYS AI Toolkit',
+    icon: '/logos/oxys-icon.svg',
+    subtitle: 'AIR MEDIA-TECH',
+    metric: 'Coming Soon',
+    image: '/cases/oxis-ai-toolkit.png',
+    comingSoon: true,
     description:
       'Designed an AI toolkit for YouTube creators from scratch — Comments Analyzer, Metadata Lab, and Idea Generator — across full OAuth, payment, and ecosystem flows.',
   },
@@ -75,7 +84,7 @@ function ImagePlaceholder({ image }) {
 function FeaturedCard({ project }) {
   return (
     <div>
-      <a href={`/work/${project.slug}`} className="flex items-center gap-4 mb-5 hover:opacity-80 transition-opacity">
+      <a href={project.comingSoon ? undefined : `/work/${project.slug}`} className={`flex items-center gap-4 mb-5 ${!project.comingSoon ? 'hover:opacity-80 transition-opacity' : 'cursor-default'}`}>
         <div className="w-14 h-14 rounded-2xl bg-[#161616] border border-[#2a2a2a] flex items-center justify-center shrink-0 overflow-hidden">
           {project.icon
             ? <img src={project.icon} alt={project.title} className="w-full h-full object-cover" />
@@ -97,8 +106,10 @@ function FeaturedCard({ project }) {
       {project.comingSoon ? (
         <div className="block bg-[#161616] border border-[#2a2a2a] rounded-3xl overflow-hidden relative">
           <ImagePlaceholder image={project.image} />
-          <div className="absolute top-4 left-4">
-            <span className="text-sm px-3 py-1.5 rounded-lg text-white font-medium backdrop-blur-md" style={{background: 'rgba(50,50,50,0.75)'}}>Coming Soon</span>
+          <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+            {project.chips && project.chips.map(chip => (
+              <span key={chip} className="text-sm px-3 py-1.5 rounded-lg text-white font-medium backdrop-blur-md" style={{background: 'rgba(50,50,50,0.75)'}}>{chip}</span>
+            ))}
           </div>
         </div>
       ) : (
@@ -151,11 +162,11 @@ function Card({ project }) {
 }
 
 export default function Work() {
-  const visible = projects.filter(p => p.slug === 'competitive-insights')
+  const visible = projects.filter(p => p.slug === 'competitive-insights' || p.slug === 'creators-ecosystem' || p.slug === 'oxis-ai-toolkit')
 
   return (
     <section id="work" className="max-w-6xl mx-auto px-6 pt-12 pb-8">
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-12">
         {visible.map((project) => (
           <FeaturedCard key={project.slug} project={project} />
         ))}

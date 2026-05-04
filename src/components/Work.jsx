@@ -28,8 +28,10 @@ const projects = [
     metric: 'Coming Soon',
     image: '/cases/creators-ecosystem.png',
     comingSoon: true,
-    description:
-      'Mapped the full service ecosystem across 30+ products — defining UX architecture that aligned product strategy with creator value delivery.',
+    description: 'Mapped the full service ecosystem across 30+ products — defining UX architecture that aligned product strategy with creator value delivery.',
+    period: '2024–2026',
+    tools: 'Figma, AI, Claude Code, Miro',
+    keywords: 'Product strategy, churn analysis, user flows, behavioral UX, design system, design critique, design audit, service blueprint, UX architecture, creator lifecycle, ecosystem design, conversion research',
   },
   {
     slug: 'oxis-ai-toolkit',
@@ -42,8 +44,10 @@ const projects = [
     metric: 'Coming Soon',
     image: '/cases/oxis-ai-toolkit.png',
     comingSoon: true,
-    description:
-      'Designed an AI toolkit for YouTube creators from scratch — Comments Analyzer, Metadata Lab, and Idea Generator — across full OAuth, payment, and ecosystem flows.',
+    description: 'Designed an AI toolkit for YouTube creators from scratch — Comments Analyzer, Metadata Lab, and Idea Generator — across full OAuth, payment, and ecosystem flows.',
+    period: '2024–2025',
+    tools: 'Figma, AI, Claude Code',
+    keywords: 'Leadership, 0→1, AI UX, design system, OAuth flows, payment UX, ecosystem design, user research, full cycle design',
   },
   {
     slug: 'ai-metadata-translation',
@@ -56,8 +60,10 @@ const projects = [
     metric: 'Coming Soon',
     image: '/cases/ai-metadata-translation.png',
     comingSoon: true,
-    description:
-      'Led UX for a metadata translation product supporting 200+ languages — 200+ screens in 6 months, including junior designer mentorship.',
+    description: 'Led UX for a metadata translation product supporting 200+ languages — 200+ screens in 6 months, including junior designer mentorship.',
+    period: '2023–2024',
+    tools: 'Figma, AI',
+    keywords: '0→1, AI UX, multilingual design, design leadership, mentorship, full cycle design, 200+ screens',
   },
   {
     slug: 'royalty',
@@ -70,8 +76,10 @@ const projects = [
     metric: 'Coming Soon',
     image: '/cases/royalty.png',
     comingSoon: true,
-    description:
-      'Designed a blockchain marketplace for creator revenue tokenization — from concept to beta launch, navigating legal ambiguity and evolving product vision.',
+    description: 'Designed a blockchain marketplace for creator revenue tokenization — from concept to beta launch, navigating legal ambiguity and evolving product vision.',
+    period: '2022–2023',
+    tools: 'Figma, Miro',
+    keywords: '0→1, Web3, blockchain, UX architecture, crypto, tokenization, startup design',
   },
 ]
 
@@ -140,14 +148,43 @@ function FeaturedCard({ project }) {
         </div>
       </div>
       {project.comingSoon ? (
-        <div className="block bg-[#161616] border border-[#2a2a2a] rounded-3xl overflow-hidden relative">
-          <ImagePlaceholder image={project.image} />
-          <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-            {project.chips && project.chips.map(chip => (
-              <span key={chip} className="text-sm px-3 py-1.5 rounded-lg text-white font-medium backdrop-blur-md" style={{background: 'rgba(50,50,50,0.75)'}}>{chip}</span>
-            ))}
+        <>
+          <div className="block bg-[#161616] border border-[#2a2a2a] rounded-3xl overflow-hidden relative">
+            <ImagePlaceholder image={project.image} />
+            <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+              {project.chips && project.chips.map(chip => (
+                <span key={chip} className="text-sm px-3 py-1.5 rounded-lg text-white font-medium backdrop-blur-md" style={{background: 'rgba(50,50,50,0.75)'}}>{chip}</span>
+              ))}
+            </div>
           </div>
-        </div>
+          {(project.description || project.period) && (
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {project.description && (
+                <p className="text-[#888888] text-sm leading-relaxed">{project.description}</p>
+              )}
+              <div className="flex flex-col gap-3">
+                {project.period && (
+                  <div className="flex gap-4">
+                    <p className="text-[#444] text-xs uppercase tracking-widest w-20 shrink-0 pt-0.5">Period</p>
+                    <p className="text-[#888888] text-sm">{project.period}</p>
+                  </div>
+                )}
+                {project.tools && (
+                  <div className="flex gap-4">
+                    <p className="text-[#444] text-xs uppercase tracking-widest w-20 shrink-0 pt-0.5">Tools</p>
+                    <p className="text-[#888888] text-sm">{project.tools}</p>
+                  </div>
+                )}
+                {project.keywords && (
+                  <div className="flex gap-4">
+                    <p className="text-[#444] text-xs uppercase tracking-widest w-20 shrink-0 pt-0.5">Keywords</p>
+                    <p className="text-[#888888] text-sm leading-relaxed">{project.keywords}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </>
       ) : (
         <a
           href={`/work/${project.slug}`}

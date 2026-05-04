@@ -7,6 +7,7 @@ const projects = [
     image: '/cases/competitive-insights.png',
     icon: '/logos/air-icon.png',
     subtitle: 'AIR MEDIA-TECH',
+    website: 'https://air.io/en',
     metric: '77% weekly return rate · 6× higher consistency',
     description:
       'Initiated and led a 0→1 analytics product for YouTube creators — from C-level workshop and API feasibility research to launch and adoption measurement.',
@@ -23,6 +24,7 @@ const projects = [
     title: 'Creators Ecosystem',
     icon: '/logos/air-icon.svg',
     subtitle: 'AIR MEDIA-TECH',
+    website: 'https://air.io/en',
     metric: 'Coming Soon',
     image: '/cases/creators-ecosystem.png',
     comingSoon: true,
@@ -36,6 +38,7 @@ const projects = [
     title: 'OXYS AI Toolkit',
     icon: '/logos/oxys-icon.svg',
     subtitle: 'AIR MEDIA-TECH',
+    website: 'https://oxys.ai/en',
     metric: 'Coming Soon',
     image: '/cases/oxis-ai-toolkit.png',
     comingSoon: true,
@@ -43,30 +46,32 @@ const projects = [
       'Designed an AI toolkit for YouTube creators from scratch — Comments Analyzer, Metadata Lab, and Idea Generator — across full OAuth, payment, and ecosystem flows.',
   },
   {
-    slug: 'royalty',
-    tags: ['0→1', 'Crypto', 'Startup'],
-    chips: ['0→1', 'Web3', 'Crypto'],
-    title: 'Royalty Web3 Platform',
-    icon: '/logos/royalty-icon.svg',
-    subtitle: 'AIR MEDIA-TECH',
-    metric: 'Coming Soon',
-    image: '',
-    comingSoon: true,
-    description:
-      'Designed a blockchain marketplace for creator revenue tokenization — from concept to beta launch, navigating legal ambiguity and evolving product vision.',
-  },
-  {
     slug: 'ai-metadata-translation',
     tags: ['0→1', 'AI', '200+ languages'],
     chips: ['Ownership · 0→1', 'Managed Design Function', 'Full Cycle Design'],
     title: 'AI Metadata Translation',
-    icon: '/logos/air-icon.png',
+    icon: '/logos/ai-metadata-icon.svg',
     subtitle: 'AIR MEDIA-TECH',
+    website: 'https://metadatatranslation.ai/en',
     metric: 'Coming Soon',
     image: '/cases/ai-metadata-translation.png',
     comingSoon: true,
     description:
       'Led UX for a metadata translation product supporting 200+ languages — 200+ screens in 6 months, including junior designer mentorship.',
+  },
+  {
+    slug: 'royalty',
+    tags: ['0→1', 'Crypto', 'Startup'],
+    chips: ['Leadership · 0→1', 'Blockchain', 'UX Architecture', 'Full Cycle Design'],
+    title: 'Royalty Web3 Platform',
+    icon: '/logos/royalty-icon.svg',
+    subtitle: 'AIR MEDIA-TECH',
+    website: 'https://royalty.io/en',
+    metric: 'Coming Soon',
+    image: '/cases/royalty.png',
+    comingSoon: true,
+    description:
+      'Designed a blockchain marketplace for creator revenue tokenization — from concept to beta launch, navigating legal ambiguity and evolving product vision.',
   },
 ]
 
@@ -96,25 +101,44 @@ function ImagePlaceholder({ image }) {
 function FeaturedCard({ project }) {
   return (
     <div>
-      <a href={project.comingSoon ? undefined : `/work/${project.slug}`} className={`flex items-center gap-4 mb-5 ${!project.comingSoon ? 'hover:opacity-80 transition-opacity' : 'cursor-default'}`}>
-        <div className="w-14 h-14 rounded-2xl bg-[#161616] border border-[#2a2a2a] flex items-center justify-center shrink-0 overflow-hidden">
-          {project.icon
-            ? <img src={project.icon} alt={project.title} className="w-full h-full object-cover" />
-            : <span className="text-white text-sm font-bold">{project.title.split(' ').map(w => w[0]).join('').slice(0,3)}</span>
-          }
-        </div>
-        <div>
-          <h3 className="text-base font-semibold text-white">{project.title}</h3>
+      <div className="flex items-start gap-4 mb-5">
+        <a href={project.comingSoon ? undefined : `/work/${project.slug}`} className={`shrink-0 ${!project.comingSoon ? 'hover:opacity-80 transition-opacity' : 'cursor-default'}`}>
+          <div className="w-14 h-14 rounded-2xl bg-[#161616] border border-[#2a2a2a] flex items-center justify-center overflow-hidden">
+            {project.icon
+              ? <img src={project.icon} alt={project.title} className="w-full h-full object-cover" />
+              : <span className="text-white text-sm font-bold">{project.title.split(' ').map(w => w[0]).join('').slice(0,3)}</span>
+            }
+          </div>
+        </a>
+        <div className="flex-1 min-w-0">
+          <a href={project.comingSoon ? undefined : `/work/${project.slug}`} className={!project.comingSoon ? 'hover:opacity-80 transition-opacity' : 'cursor-default'}>
+            <h3 className="text-base font-semibold text-white">{project.title}</h3>
+          </a>
           {project.subtitle && (
-            <p className="text-[#888888] text-sm mt-0.5">
-              {project.subtitle}
-              {project.metric && (
-                <><span className="mx-2">·</span><span className="text-[#c8f563]">{project.metric}</span></>
+            <div className="flex items-center justify-between mt-0.5">
+              <p className="text-[#888888] text-sm">
+                {project.subtitle}
+                {project.metric && (
+                  <><span className="mx-2">·</span><span className="text-[#c8f563]">{project.metric}</span></>
+                )}
+              </p>
+              {project.website && (
+                <a
+                  href={project.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#888888] hover:text-white hover:underline text-sm transition-colors inline-flex items-center gap-1.5 shrink-0 ml-4"
+                >
+                  Live product
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                  </svg>
+                </a>
               )}
-            </p>
+            </div>
           )}
         </div>
-      </a>
+      </div>
       {project.comingSoon ? (
         <div className="block bg-[#161616] border border-[#2a2a2a] rounded-3xl overflow-hidden relative">
           <ImagePlaceholder image={project.image} />
@@ -175,7 +199,7 @@ function Card({ project }) {
 
 export default function Work() {
   const prodSlugs = ['competitive-insights', 'creators-ecosystem', 'oxis-ai-toolkit']
-  const devSlugs = [...prodSlugs, 'ai-metadata-translation']
+  const devSlugs = [...prodSlugs, 'royalty', 'ai-metadata-translation']
   const visible = projects.filter(p => (import.meta.env.DEV ? devSlugs : prodSlugs).includes(p.slug))
 
   return (

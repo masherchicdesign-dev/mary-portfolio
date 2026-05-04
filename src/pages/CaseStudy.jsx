@@ -85,7 +85,7 @@ export default function CaseStudy() {
         {/* Hero */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <div>
-            <div className="w-20 h-20 rounded-2xl overflow-hidden mb-6">
+            <div className="w-20 h-20 rounded-2xl bg-[#161616] border border-[#2a2a2a] flex items-center justify-center overflow-hidden mb-6">
               <img src="/logos/air-icon.png" alt="AIR" className="w-full h-full object-cover" />
             </div>
             <h1 className="text-[40px] font-bold leading-[1.15] tracking-tight mb-6">

@@ -93,7 +93,7 @@ export default function CreatorsEcosystem() {
         {/* Hero */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <div>
-            <div className="w-20 h-20 rounded-2xl overflow-hidden mb-6">
+            <div className="w-20 h-20 rounded-2xl bg-[#161616] border border-[#2a2a2a] flex items-center justify-center overflow-hidden mb-6">
               <img src="/logos/air-icon.svg" alt="AIR" className="w-full h-full object-cover" />
             </div>
             <h1 className="text-[40px] font-bold leading-[1.15] tracking-tight mb-6">
@@ -101,7 +101,7 @@ export default function CreatorsEcosystem() {
             </h1>
             <div className="w-fit">
               <p className="text-[#888888] text-base leading-relaxed mb-6 max-w-[400px]">
-                The personal cabinet for 3,000+ YouTube creators across 70 countries. I came in without a brief and left having built the strategic foundation the entire platform still runs on.
+                The personal platform for 3,000+ YouTube creators across 70 countries. I came in without a brief and left having built the strategic foundation the entire platform still runs on.
               </p>
               <div className="flex flex-wrap gap-2">
                 {['UX Architecture', 'Customer Experience', 'Systems Design', 'Strategy'].map(tag => (
@@ -171,143 +171,120 @@ export default function CreatorsEcosystem() {
 
         {/* Research */}
         <Section id="research">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 items-start">
+            <div>
+              <p className="inline-block text-white text-xs px-3 py-1 border border-[#2a2a2a] rounded-full uppercase tracking-widest mb-4">Problem Statement</p>
+              <h2 className="text-3xl font-bold leading-tight mb-6">The Core Hypothesis</h2>
+              <p className="text-[#888888] text-base leading-relaxed">The signal came from lead product managers: creators weren't responding to messages inside the platform MyAIR. Instead of waiting for a task, I suggested we talk to them directly to understand whether this was a notification problem, a product problem, or something deeper.<br /><br />What we heard changed the framing of the problem entirely.</p>
+            </div>
+            <div className="bg-[#161616] border border-[#2a2a2a] rounded-2xl p-6">
+              <div className="w-10 h-10 rounded-xl mb-4 flex items-center justify-center bg-[#2a2a2a]">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#888888" className="w-5 h-5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+                </svg>
+              </div>
+              <h3 className="text-base font-semibold mb-2">Creators weren't ignoring messages. They had no reason to open the platform at all.</h3>
+              <p className="text-[#888888] text-sm leading-relaxed">The real problem wasn't communication it was that the platform delivered no independent value outside of a monthly payout request.</p>
+            </div>
+          </div>
+          <hr className="border-t border-[#2a2a2a] my-12" />
+
           <div className="text-center mb-12 max-w-[620px] mx-auto">
             <SectionLabel>User Research</SectionLabel>
-            <h2 className="text-3xl font-bold leading-tight mb-6">We thought they weren't reading messages.<br />Turns out — they had no reason to open the cabinet at all.</h2>
+            <h2 className="text-3xl font-bold leading-tight mb-6">Turns out, they saw no value in the platform at all.</h2>
             <p className="text-[#888888] text-base leading-relaxed">
-              Together with the Head of Product, I ran deep interviews with 7 creators — AIR partners with different tenure and channel scale. What we heard changed the framing of the problem entirely.
+              Together with the Head of Design, I ran deep interviews with creators, AIR partners with different tenure and channel scale. We thought they weren't reading messages but the insights went much deeper:
             </p>
           </div>
 
-          <div className="flex flex-col gap-4">
-            {[
-              {
-                n: '01',
-                title: 'One scenario. One route. Cabinet closes.',
-                quote: '"The algorithm for working with the cabinet is always the same. It narrows down to one visit per month — when you need to withdraw money. You go in, click Request Payout, they say thank you — you close the tab. That\'s it."',
-                insight: 'The cabinet had to show value before the user even reached the finance section.',
-              },
-              {
-                n: '02',
-                title: 'Messages exist. But aren\'t perceived as important.',
-                quote: '"There are a lot of messages but I didn\'t read them. A few times I went in — just filler. Then I didn\'t even know they\'d arrived."',
-                insight: 'Communication had to be tied to user actions and goals — not to the manager\'s schedule.',
-              },
-              {
-                n: '03',
-                title: '50 products. Knew about none of them.',
-                quote: '"I only found out we had 50 products when I was making a marketing presentation. Some unclear buttons that meant nothing to me. I was surprised to learn AIR makes thumbnails. But everyone stays quiet about it — like some wild secret."',
-                insight: 'Products had to be recommended personally — through the creator\'s specific goals and metrics, not through a general catalogue.',
-              },
-              {
-                n: '04',
-                title: 'Personal manager was the glue. When they left — the connection broke.',
-                quote: '"We had a person — a real human who called us, not just wrote somewhere in a chat. She could call and say there\'s a copyright issue. Then one left, then another, then a third — and they just stopped caring about us."',
-                insight: 'The cabinet had to compensate for the loss of personal contact — through personalisation and proactive hints.',
-              },
-              {
-                n: '05',
-                title: 'The price became visible. The value didn\'t.',
-                quote: '"We earned $10,000, paid AIR $3,000. We calculate: withdraw directly — $750. Jaiр separately — $50. Total $800. Where are our $2,200?"',
-                insight: 'The cabinet had to show what the creator gets from the partnership — not just how much they pay.',
-              },
-              {
-                n: '06',
-                title: 'Products exist. But discovered by accident.',
-                quote: '"I don\'t even know this section with products. This is the only thing I used — the service to set up ads. About the catalogue I don\'t really know what else is there."',
-                insight: 'A personalised recommendation at the right moment is more valuable than a full catalogue.',
-              },
-              {
-                n: '07',
-                title: 'AIR knows more about the channel than the creator does. But stays silent.',
-                quote: '"If there was such an option — send a video for review and within 4–5 hours get feedback: you have a copyright risk here, we recommend cutting — that would be very good." And the most powerful moment: "When I connected it was $15–20 per month — now it\'s $1,500."',
-                insight: 'AIR genuinely helps creators grow. But creators don\'t connect that growth to the platform — because the platform doesn\'t talk about it.',
-              },
-            ].map(item => (
-              <div key={item.n} className="bg-[#161616] border border-[#2a2a2a] rounded-2xl p-6 sm:p-8 grid grid-cols-1 sm:grid-cols-[2rem_1fr] gap-4 sm:gap-8">
-                <p className="text-[#2a2a2a] text-sm font-mono font-bold mt-0.5">{item.n}</p>
-                <div>
-                  <h3 className="text-base font-semibold text-white mb-3">{item.title}</h3>
-                  <p className="text-[#888888] text-sm leading-relaxed italic mb-4">{item.quote}</p>
-                  <div className="border-t border-[#2a2a2a] pt-4">
-                    <p className="text-[#c8f563] text-sm leading-relaxed">→ {item.insight}</p>
-                  </div>
+          <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-4 items-stretch">
+            {/* Left — quote block */}
+            <div className="bg-[#161616] border border-[#2a2a2a] rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+              <div>
+                <p className="text-[#888888] text-sm uppercase tracking-widest mb-4">The most powerful moment</p>
+                <p className="text-white text-2xl font-bold leading-tight mb-4">"When I connected it was $15–20 per month. Now it's $1,500."</p>
+                <p className="text-[#888888] text-sm leading-relaxed">AIR genuinely helped this creator grow 75×. But they didn't connect that growth to the platform because the platform never told them. Creators were receiving value without knowing it was being delivered.</p>
+              </div>
+              <p className="text-[#c8f563] text-sm mt-6 leading-relaxed">→ The platform had to make its own impact visible.</p>
+            </div>
+
+            {/* Right — insight cards grid */}
+            <div className="grid grid-cols-2 gap-3">
+              {[
+                {
+                  label: 'Unclear onboarding flow',
+                  body: 'Creators didn\'t understand how to connect or what they\'d get.',
+                  color: '#c8f563',
+                  icon: (
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M3 17c3-3 6-3 9 0s6 3 9 0"/><path d="M3 7c3-3 6-3 9 0s6 3 9 0"/>
+                    </svg>
+                  ),
+                },
+                {
+                  label: 'No relevant communication',
+                  body: 'Messages not tied to user actions — tied to the manager\'s schedule.',
+                  color: '#60a5fa',
+                  icon: (
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    </svg>
+                  ),
+                },
+                {
+                  label: 'No personal connection',
+                  body: 'Personal managers left. Platform didn\'t compensate.',
+                  color: '#f97316',
+                  icon: (
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                    </svg>
+                  ),
+                },
+                {
+                  label: 'No product discovery',
+                  body: 'Products existed. Creators found them by accident.',
+                  color: '#a78bfa',
+                  icon: (
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                    </svg>
+                  ),
+                },
+              ].map((item, i) => (
+                <div key={i} className="rounded-2xl p-5 flex flex-col gap-3" style={{background: '#1c1c1e'}}>
+                  <div style={{color: item.color}}>{item.icon}</div>
+                  <p className="text-white text-sm font-semibold leading-snug">{item.label}</p>
+                  <p className="text-[#888888] text-xs leading-relaxed">{item.body}</p>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 bg-[#161616] border border-[#2a2a2a] rounded-2xl p-6 sm:p-8">
-            <p className="text-[#888888] text-sm uppercase tracking-widest mb-4">What unites all insights</p>
-            <p className="text-white text-base leading-relaxed max-w-[620px]">
-              Two completely different creators — an experienced partner on the edge of leaving and a loyal newcomer who is growing — were saying the same thing in different words: AIR helps, but doesn't show how. Creators were paying for partnership — but didn't feel like partners.
-            </p>
-            <p className="text-[#c8f563] text-sm mt-4 leading-relaxed">This wasn't a UX problem. It was a problem of communicating value.</p>
+              ))}
+            </div>
           </div>
         </Section>
 
-        {/* Additional Research */}
-        <Section id="additional-research">
-          <div className="text-center mb-12 max-w-[620px] mx-auto">
-            <SectionLabel>Additional Research</SectionLabel>
-            <h2 className="text-3xl font-bold leading-tight mb-6">Three more studies to complete the picture</h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
-            {[
-              {
-                label: 'Churn Research',
-                stat: '121',
-                statLabel: 'disconnected accounts',
-                body: 'Top reasons for leaving: "Doesn\'t explain" (19%) · "Doesn\'t see value of partnership" (14%) · "Doesn\'t want to pay" (11.5%) · "Disappointed in service" (9.9%). By vertical: Entertainment (31) · Gaming (20) · Kids&Teens (15).',
-              },
-              {
-                label: 'Service Blueprint',
-                stat: '1',
-                statLabel: 'full journey mapped',
-                body: 'Full journey map from acquisition to churn — with the line of visibility and interaction. Revealed key friction points: scattered communication flow, messenger more convenient than the cabinet, and a "distribution by conscience" pattern.',
-              },
-              {
-                label: 'Conversion Funnel',
-                stat: '40+',
-                statLabel: 'products audited',
-                body: 'Analysed conversion funnels for each product in the ecosystem. 1,844 clicks from "Try it" → 21,644 registrations. Documented core user journey, AHA moment and time to value for each product.',
-              },
-            ].map(item => (
-              <div key={item.label} className="bg-[#161616] border border-[#2a2a2a] rounded-2xl p-6 flex flex-col">
-                <p className="text-[#888888] text-xs uppercase tracking-widest mb-4">{item.label}</p>
-                <p className="text-white text-3xl font-bold mb-1">{item.stat}</p>
-                <p className="text-[#888888] text-sm mb-4">{item.statLabel}</p>
-                <p className="text-[#888888] text-sm leading-relaxed flex-1">{item.body}</p>
-              </div>
-            ))}
-          </div>
-
-          <ImageBlock src="" alt="Service Blueprint" onClick={(src, alt) => setLightbox({ src, alt })} />
-        </Section>
 
         {/* Strategy */}
         <Section id="strategy">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-12">
             <div>
               <SectionLabel>Strategy</SectionLabel>
-              <h2 className="text-3xl font-bold leading-tight mb-6">From insights — to a C-level decision</h2>
+              <h2 className="text-3xl font-bold leading-tight mb-6">From insights to decision</h2>
               <p className="text-[#888888] text-base leading-relaxed">
-                The data from research became the basis of a strategic pitch. I prepared an AIR partnership map: a development axis from $0 to $15,000+, a point of frustration and departure, an axis of our influence, and key needs for each segment.
+                The data from research became the basis of a strategic pitch. I prepared an AIR partnership map: a development axis of our influence and key needs for each segment.
                 <br /><br />
-                Head of Product pitched it to C-level — and the decision was made to develop the cabinet.
+                Head of Design pitched it to C-level and the decision was made to develop the platform. This created a new platform stream, updated the CX stream, and started a full redesign.
               </p>
             </div>
             <div className="bg-[#161616] border border-[#2a2a2a] rounded-2xl p-6">
               <p className="text-[#888888] text-xs uppercase tracking-widest mb-4">The core question</p>
               <p className="text-white text-base font-medium leading-relaxed mb-6">"Why do creators leave — and what would make them stay and grow?"</p>
               <div className="border-t border-[#2a2a2a] pt-4">
-                <p className="text-[#888888] text-sm leading-relaxed">The answer wasn't a single feature. It was a system — one that makes AIR's value visible at every stage of creator growth.</p>
+                <p className="text-[#888888] text-sm leading-relaxed">The answer wasn't a single feature. It was a system one that makes AIR's value visible at every stage of creator growth.</p>
               </div>
             </div>
           </div>
 
-          <ImageBlock src="" alt="Partnership value map" onClick={(src, alt) => setLightbox({ src, alt })} />
+          <ImageBlock src="/cases/spich.png" alt="AIR partnership pitch" onClick={(src, alt) => setLightbox({ src, alt })} />
 
           <div className="mt-16">
             <div className="text-center mb-8 max-w-[620px] mx-auto">
@@ -498,11 +475,11 @@ export default function CreatorsEcosystem() {
         <Section id="ecosystem">
           <div className="text-center mb-12 max-w-[620px] mx-auto">
             <SectionLabel>Ecosystem</SectionLabel>
-            <h2 className="text-3xl font-bold leading-tight mb-6">The cabinet turned out to be a platform</h2>
+            <h2 className="text-3xl font-bold leading-tight mb-6">The platform turned out to be a platform</h2>
             <p className="text-[#888888] text-base leading-relaxed">
-              When I started — the task was to make the cabinet more understandable. But the deeper I went into research, the clearer it became: the problem wasn't the interface. The problem was that 30+ products existed separately — with no shared logic, no navigation between them, no understanding of where the user was in their development.
+              When I started — the task was to make the platform more understandable. But the deeper I went into research, the clearer it became: the problem wasn't the interface. The problem was that 30+ products existed separately — with no shared logic, no navigation between them, no understanding of where the user was in their development.
               <br /><br />
-              MyAIR became the assembly point. Not just a cabinet — but a platform that connects all layers of the ecosystem into one system.
+              MyAIR became the assembly point. Not just a platform — but a platform that connects all layers of the ecosystem into one system.
             </p>
           </div>
 

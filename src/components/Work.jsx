@@ -58,7 +58,13 @@ const projects = [
   {
     slug: 'ai-metadata-translation',
     tags: ['0→1', 'AI', '200+ languages'],
+    chips: ['Ownership · 0→1', 'Managed Design Function', 'Full Cycle Design'],
     title: 'AI Metadata Translation',
+    icon: '/logos/air-icon.png',
+    subtitle: 'AIR MEDIA-TECH',
+    metric: 'Coming Soon',
+    image: '/cases/ai-metadata-translation.png',
+    comingSoon: true,
     description:
       'Led UX for a metadata translation product supporting 200+ languages — 200+ screens in 6 months, including junior designer mentorship.',
   },
@@ -168,7 +174,7 @@ function Card({ project }) {
 }
 
 export default function Work() {
-  const visible = projects.filter(p => ['competitive-insights', 'creators-ecosystem', 'oxis-ai-toolkit'].includes(p.slug))
+  const visible = projects.filter(p => ['competitive-insights', 'creators-ecosystem', 'oxis-ai-toolkit', 'ai-metadata-translation'].includes(p.slug))
 
   return (
     <section id="work" className="max-w-6xl mx-auto px-6 pt-12 pb-8">

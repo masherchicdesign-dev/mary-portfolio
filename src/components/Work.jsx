@@ -174,7 +174,9 @@ function Card({ project }) {
 }
 
 export default function Work() {
-  const visible = projects.filter(p => ['competitive-insights', 'creators-ecosystem', 'oxis-ai-toolkit'].includes(p.slug))
+  const prodSlugs = ['competitive-insights', 'creators-ecosystem', 'oxis-ai-toolkit']
+  const devSlugs = [...prodSlugs, 'ai-metadata-translation']
+  const visible = projects.filter(p => (import.meta.env.DEV ? devSlugs : prodSlugs).includes(p.slug))
 
   return (
     <section id="work" className="max-w-6xl mx-auto px-6 pt-12 pb-8">

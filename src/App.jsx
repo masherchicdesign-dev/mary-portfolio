@@ -6,6 +6,7 @@ import Work from './components/Work'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import CaseStudy from './pages/CaseStudy'
+import CreatorsEcosystem from './pages/CreatorsEcosystem'
 import './index.css'
 
 function Home() {
@@ -34,6 +35,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/work/creators-ecosystem" element={<CreatorsEcosystem />} />
       <Route path="/work/:slug" element={<CaseStudy />} />
     </Routes>
   )

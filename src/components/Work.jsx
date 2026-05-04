@@ -25,9 +25,8 @@ const projects = [
     icon: '/logos/air-icon.svg',
     subtitle: 'AIR MEDIA-TECH',
     website: 'https://air.io/en',
-    metric: 'Coming Soon',
+    metric: '3,000+ creators · 70 countries',
     image: '/cases/creators-ecosystem.png',
-    comingSoon: true,
     description:
       'Mapped the full service ecosystem across 30+ products — defining UX architecture that aligned product strategy with creator value delivery.',
   },
